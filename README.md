@@ -1,9 +1,13 @@
 # 동현디 v0.01
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24522934.svg)](https://doi.org/10.5281/zenodo.24522934)
+
 동현랭으로 시작 스테이지와 종이 색을 정하는 **1인용 세로 화면 혈당 교육 게임**이다. 1형 당뇨병이 있는 아이의 하루 가운데 몇 시간을 맡아, 인슐린과 주스로 혈당을 70–180 mg/dL 안에 둔다. 거친 미색 종이 위에 연필로 그린 몸속에서 포도당과 인슐린이 움직이는 모습을 본다. 부제는 ‘연필로 그린 혈당 게임’.
 동현 시리즈의 스물다섯 번째 작은 실험이다. 게임 방식은 「[Level One: A Diabetes Game](https://playlevelone.com/)」에서 가져왔고, 연필 화면은 [동현스](https://github.com/Raspberry-Kim/donghyun-lab21)의 틀이다. 그림·소리·글·스테이지·코드는 새로 만들었다.
 
 바로 하기: https://raspberry-kim.github.io/donghyun-lab24/
+
+모든 판을 묶는 DOI는 [`10.5281/zenodo.24522934`](https://doi.org/10.5281/zenodo.24522934)이다. 이번 판은 [v0.01 릴리스](https://github.com/Raspberry-Kim/donghyun-lab24/releases/tag/v0.01)이며 Zenodo 보관본은 [records/24522935](https://zenodo.org/records/24522935)(DOI `10.5281/zenodo.24522935`)이다.
 
 **교육용 게임이다.** 실제 인슐린 용량과 저혈당·아픈 날의 대처는 담당 의료진이 정해 준 계획을 따른다.
 
@@ -115,4 +119,4 @@
 
 ## 시리즈 연결
 
-[동현랭](https://raspberry-kim.github.io/donghyun-lang/)과 스물네 실험실을 상단 메뉴로 오간다. 데스크톱 메뉴는 13열×2줄, 모바일은 두 열이다.
+[동현랭](https://raspberry-kim.github.io/donghyun-lang/)과 스물네 실험실을 상단 메뉴로 오간다. 데스크톱 메뉴는 동현랭이 두 줄 높이이고 실험실은 12열×2줄, 모바일은 두 열이다.

@@ -447,6 +447,9 @@ html{touch-action:manipulation}.stage-full,.board-stage,.touchpad,.dpad,.pad-key
 @media(min-width:781px) and (max-width:980px){
  .series-strip .series-links:has(.series-item:nth-child(25):last-child) .series-item[data-series="lang"] .series-name{font-size:16px}
 }
+@media(min-width:781px) and (max-width:840px){
+ .series-strip .series-links:has(.series-item:nth-child(25):last-child) .series-name,.series-strip .series-links:has(.series-item:nth-child(25):last-child) .series-item[data-series="lang"] .series-name{font-size:14px}
+}
 @media(max-width:780px){
  .series-strip .series-links:has(.series-item:nth-child(25):last-child){grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:none}
  .series-strip .series-links:has(.series-item:nth-child(25):last-child) .series-item[data-series="lang"]{grid-column:span 2;grid-row:auto}
