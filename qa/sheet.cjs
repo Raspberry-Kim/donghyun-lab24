@@ -1,0 +1,2 @@
+const { chromium } = require('/home/user/node_modules/playwright'); const path = require('path');
+(async () => { const b = await chromium.launch(); const pg = await b.newPage({ viewport: { width: 1920, height: 1200 } }); await pg.goto('file://' + path.join(__dirname, 'sheet.html')); await pg.waitForTimeout(1500); await pg.screenshot({ path: path.join(__dirname, 'donghyundi-sheet.png'), fullPage: true }); await b.close(); })();
