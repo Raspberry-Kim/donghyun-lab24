@@ -111,7 +111,7 @@ function parseSortie(out) {
 }
 const paperName = c => DS.PAPERS[c.bg - 1].name, stageName = i => DS.STAGES[i].name;
 function sortieCard(c) {
-  $('#sortie-card').innerHTML = [['시작 스테이지', `${c.stage} · ${stageName(c.stage - 1)}`], ['익히는 것', DS.STAGES[c.stage - 1].goal], ['배경 색', `${c.bg} · ${paperName(c)}`], ['조작', '인슐린 버튼을 누르면 눈금이 나오고, 용량을 정해 맞는다 · 주스 버튼 · 빨리 감기 버튼']].map(([a, b]) => `<div><span>${a}</span><strong>${esc(b)}</strong></div>`).join('');
+  $('#sortie-card').innerHTML = [['시작 스테이지', `${c.stage} · ${stageName(c.stage - 1)}`], ['익히는 것', DS.STAGES[c.stage - 1].goal], ['배경 색', `${c.bg} · ${paperName(c)}`], ['조작', '인슐린 버튼을 누르면 눈금이 나오고, 용량을 정해 맞는다 · 주스 버튼 · 속도 버튼(1배속 · 2배속 · 4배속)']].map(([a, b]) => `<div><span>${a}</span><strong>${esc(b)}</strong></div>`).join('');
   $('#stamp-mode').innerHTML = `스테이지 ${c.stage} <span>${esc(stageName(c.stage - 1))}</span>`;
 }
 function result(text, kind) { const r = $('#result'); r.textContent = text; r.dataset.kind = kind || ''; }
@@ -169,8 +169,8 @@ function go() {                       // 출전: 종이 색을 맞추고 바로 
   setPaper(cfg.bg, () => startStage(cfg.stage - 1));
 }
 function startStage(i) {
-  feteOff(); IN.clear();
-  A.g = new DS.Game({ stage: i, sfx: SFX.play }); A.turn = 0; A.hold = ''; A.scr = 'game'; A.t = 0; watch = null; R.pressT = 0;
+  feteOff(); IN.clear();      /* 1배속을 골랐으면 다음 스테이지에서도 이어 가고, 4배속은 기본 속도로 돌아온다 */
+  A.g = new DS.Game({ stage: i, sfx: SFX.play, rate: A.g ? Math.min(A.g.rate, DS.K.RATE0) : DS.K.RATE0 }); A.turn = 0; A.hold = ''; A.scr = 'game'; A.t = 0; watch = null; R.pressT = 0;
   $('#hint').innerHTML = HINT0; status('진행 중'); observe(); hud();
 }
 /* 열두 스테이지를 모두 마친 축하: 팡파르(약 10초)와 꽃비. 마친 화면을 떠나면 함께 멈춘다. 소리를 꺼 두어도 꽃비는 내린다 */
@@ -362,9 +362,9 @@ function stepGame() {
       if (UI.hit(UI.menu, x, y, 4)) { mainMenu(); return; }
       if (UI.hit(UI.juice, x, y)) { press('juice'); if (!g.juice() && g.mode === 'play') { g.say('주스가 없다'); SFX.play('cancel'); } }
       else if (UI.hit(UI.ins, x, y)) { press('ins'); g.dialOpen(); A.hold = ''; }
-      else if (UI.hit(UI.ff, x, y)) { press('ff'); g.toggleFF(); }
+      else { const rb = UI.rates.find(b => UI.hit(b, x, y, 2)); if (rb) { press(rb.id); g.setRate(rb.r); } }
     }
-  } else { g.autoPlay(HOW); if (g.mode === 'play') g.ff = true; }
+  } else { g.autoPlay(HOW); if (g.mode === 'play') g.rate = 4; }
   g.update(); observe(); if (g.n % 6 === 0 || g.mode !== 'play') hud();
 }
 /* 눈금 판: 자는 누르거나 끌어서, 걸음 버튼은 누르는 대로, 취소와 맞는다는 그 위에서 떼어야 듣는다 */

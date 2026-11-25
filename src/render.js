@@ -1,5 +1,5 @@
 /* 화면 그리기. 논리 240×420칸(세로로 긴 한 장).
-   위에서부터: 윗줄 · 혈당 판 · 그래프 · 한 줄 안내 · 벨트 · 피부 밑과 위 · 혈액 방과 세포 · 버튼 셋 */
+   위에서부터: 윗줄 · 혈당 판 · 그래프 · 한 줄 안내 · 벨트 · 피부 밑과 위 · 혈액 방과 세포 · 버튼(주스 · 인슐린 · 속도 셋) */
 (function () {
   'use strict';
   const DS = window.DS, W = DS.W, H = DS.H, S = DS.S, ART = DS.ART, PI = Math.PI, K = DS.K, CELLS = DS.CELLS;
@@ -9,7 +9,8 @@
   /* 누르는 자리(논리 칸). 앱과 함께 쓴다 */
   const UI = DS.UI = {
     menu: { x: 206, y: 0, w: 34, h: 22 },
-    juice: { x: 8, y: 348, w: 60, h: 68 }, ins: { x: 76, y: 348, w: 88, h: 68 }, ff: { x: 172, y: 348, w: 60, h: 68 },
+    juice: { x: 8, y: 348, w: 60, h: 68 }, ins: { x: 76, y: 348, w: 88, h: 68 },
+    rates: [{ id: 'r1', r: 1, x: 172, y: 348, w: 60, h: 20 }, { id: 'r2', r: 2, x: 172, y: 372, w: 60, h: 20 }, { id: 'r4', r: 4, x: 172, y: 396, w: 60, h: 20 }],      // 속도 셋: 1배속 · 2배속(기본) · 4배속
     start: { x: 50, y: 300, w: 140, h: 40 },
     /* 눈금 판: 자(0~15단위) · 걸음 버튼 넷 · 취소 · 맞는다 */
     dial: {
@@ -216,14 +217,14 @@
     for (let i = 0; i < g.kets.length; i++) { const q = g.kets[i]; if (q.a < 1) c.globalAlpha = Math.max(0, q.a); c.drawImage(sk.frames[(i + fi) & 1], Math.round(q.x * S - hw), Math.round(q.y * S - hw)); if (q.a < 1) c.globalAlpha = 1; }
     for (let i = 0; i < g.keys.length; i++) { const q = g.keys[i], sd = CELLS[q.c].side; this.spr('key', q.x, q.y, sd === 'l' ? PI : sd === 'r' ? 0 : PI / 2, 1, 1, (i + fi) & 1, Math.max(0, Math.min(1, q.a))); }
     T('혈액', 120, 211, 7.2, 'center', 0.5);
-    /* 버튼 셋 */
+    /* 버튼: 주스 · 인슐린 · 속도 셋 */
     const d = g.dial, pr = this.pressT > 0 ? this.press : '';
     const btn = (r, on, seed, dim) => { if (on) this.shade(r.x, r.y, r.w, r.h, 0.12); this.box(r.x, r.y, r.w, r.h, seed + (on ? 3 : 0), on ? 1.5 : 0.9, dim ? 0.4 : 0.9, on ? null : 0.5); };
     const jd = g.juiceLeft <= 0;
     btn(UI.juice, pr === 'juice', 51, jd); this.spr('pack', 38, 371, 0, 1, 1, fi, jd ? 0.35 : 1); T('주스', 38, 394, 10.5, 'center', jd ? 0.4 : 1); T('남은 ' + g.juiceLeft + '팩', 38, 406.5, 7.8, 'center', jd ? 0.4 : 0.8);
     btn(UI.ins, pr === 'ins', 52, false); this.spr('pen', 120, 367, 0, 1, 1, fi); T('인슐린', 120, 387, 13, 'center');
     T('누르면 눈금이 나온다', 120, 403.5, 7.4, 'center', 0.8);
-    btn(UI.ff, g.ff, 53, false); this.spr('ff', 202, 371, 0, 1, 1, fi); T('빨리 감기', 202, 394, 9.6, 'center'); T(g.ff ? '4배로 가는 중' : '누르면 4배', 202, 406.5, 7.8, 'center', 0.8);
+    for (const b of UI.rates) { const on = g.rate === b.r; btn(b, on, 53 + b.r, false); T(b.r + '배속', b.x + b.w / 2, b.y + b.h / 2 + 0.5, on ? 10.5 : 9.6, 'center', on ? 1 : 0.7); }
     if (d) this.dial(g, d, pr);
     /* 스테이지 머리 · 결과 */
     if (g.mode === 'intro') {

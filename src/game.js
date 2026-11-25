@@ -1,12 +1,12 @@
 /* 동현디 모의: 혈당 · 인슐린 · 음식 · 운동 · 케톤.
    숫자(혈당·인슐린·위 속 탄수화물·케톤)는 식으로 셈하고, 혈액 방의 입자는 그 숫자를 따라 그린다.
-   1걸음 = 0.04분(1초에 2.4분). 빨리 감기는 한 걸음에 네 번 셈한다. */
+   1걸음 = 0.04분. 속도는 한 걸음에 셈하는 횟수다: 1배속 한 번(1초에 2.4분) · 2배속 두 번(기본, 4.8분) · 4배속 네 번(9.6분). */
 (function () {
   'use strict';
   const root = typeof window !== 'undefined' ? window : globalThis;
   const DS = root.DS = root.DS || {};
   const K = DS.K = {
-    DT: 0.04, FF: 4,
+    DT: 0.04, RATES: [1, 2, 4], RATE0: 2,
     TAU: 30,                       // 인슐린 세 칸 사슬의 한 칸(분): 정점 60분, 4시간에 98.6%
     LOW: 70, HIGH: 180, VLOW: 54, VHIGH: 250, TARGET: 120, FLOOR: 40, VLOW_MIN: 40,
     GLU: 2, KEY: 0.1, KET: 0.1,    // 입자 하나: 포도당 2 mg/dL · 인슐린 0.1단위 · 케톤 0.1 mmol/L
@@ -39,7 +39,7 @@
     this.inj = []; this.juices = [];
     this.st = { tin: 0, low: 0, high: 0, vlow: 0, vhigh: 0, all: 0, min: this.bg, max: this.bg };
     this.hist = [this.bg]; this.marks = [];      // 그래프: 1분마다 혈당, 주사·음식·주스 표시
-    this.dial = null; this.ff = false; this.speed = 1;
+    this.dial = null; this.rate = K.RATES.indexOf(o.rate) >= 0 ? o.rate : K.RATE0; this.speed = 1;
     this.alarm = ''; this.tip = S.tips && S.tips[0] ? S.tips[0][1] : ''; this.note = ''; this.noteT = 0;
     this.stars = 0; this.fail = ''; this.review = '';
     this.chew = 0; this.pulse = 0; this.sip = 0;
@@ -70,8 +70,8 @@
   G.parAt = function (t) { let icr = this.S.icr, isf = this.S.isf; for (const s of (this.S.sched || [])) if (t >= s.t) { icr = s.icr; isf = s.isf; } return { icr: icr, isf: isf }; };
 
   /* ── 조작 ── */
-  /* 인슐린 버튼을 누르면 눈금 판이 열린다. 판이 열린 동안에도 시간은 제 속도로 흐르고(빨리 감기는 풀린다), 눈금을 정한 뒤 '맞는다'를 눌러야 들어간다 */
-  G.dialOpen = function () { if (this.mode !== 'play' || this.dial) return false; this.dial = { u: 0 }; this.ff = false; this.sfx('tick'); return true; };
+  /* 인슐린 버튼을 누르면 눈금 판이 열린다. 판이 열린 동안에도 시간은 흐르고(4배속은 2배속으로 돌아온다), 눈금을 정한 뒤 '맞는다'를 눌러야 들어간다 */
+  G.dialOpen = function () { if (this.mode !== 'play' || this.dial) return false; this.dial = { u: 0 }; this.calm(); this.sfx('tick'); return true; };
   G.dialSet = function (u) {
     const d = this.dial; if (!d) return 0;
     u = Math.max(0, Math.min(K.DIAL_MAX, half(u)));
@@ -98,7 +98,9 @@
     this.juices.push({ t: this.t, bg: this.bg }); this.marks.push({ t: this.t, k: 'j' }); this.sfx('juice'); this.say('주스 15 g');
     return true;
   };
-  G.toggleFF = function () { if (this.mode !== 'play') return; this.ff = !this.ff; this.sfx('tick'); };
+  /* 속도: 1배속 · 2배속(기본) · 4배속. 손쓸 일이 생기면 4배속은 기본 속도로 돌아온다 */
+  G.setRate = function (r) { if (this.mode !== 'play' || K.RATES.indexOf(r) < 0 || r === this.rate) return false; this.rate = r; this.sfx('tick'); return true; };
+  G.calm = function () { if (this.rate > K.RATE0) this.rate = K.RATE0; };
   G.say = function (s) { this.note = s; this.noteT = 150; };
 
   /* ── 한 걸음 ── */
@@ -107,7 +109,7 @@
     if (this.noteT > 0) this.noteT--; if (this.pulse > 0) this.pulse--; if (this.sip > 0) this.sip--;
     if (this.mode === 'intro') { if (this.modeT >= 70) { this.mode = 'play'; this.modeT = 0; } this.visual(1); return; }
     if (this.mode !== 'play') { this.visual(1); return; }
-    const reps = this.ff ? K.FF : 1, dt = K.DT;
+    const reps = this.rate, dt = K.DT;
     this.speed = reps;
     for (let i = 0; i < reps && this.mode === 'play'; i++) this.physio(dt);
     this.visual(this.speed);
@@ -136,7 +138,7 @@
     /* 음식이 벨트 끝에 닿으면 먹는다 */
     for (const f of this.foods) {
       if (!f.done && t >= f.t) { f.done = true; this.stomach.push({ q1: f.g, q2: 0, tau: f.tau }); this.marks.push({ t: t, k: 'f', g: f.g }); this.chew = 90; this.sfx('eat'); }
-      if (f.late && t0 < f.show && t >= f.show) { this.ff = false; this.say('간식이 왔다: ' + f.name); this.sfx('low'); }
+      if (f.late && t0 < f.show && t >= f.show) { this.calm(); this.say('간식이 왔다: ' + f.name); this.sfx('low'); }
     }
     for (const e of this.ex) { if (t0 < e.t0 && t >= e.t0) { this.say(e.name + ' 시작'); this.sfx('ok'); } if (t0 < e.t1 && t >= e.t1) { this.say(e.name + ' 끝'); this.sfx('ok'); } }
     /* 범위 안 시간 */
@@ -149,7 +151,7 @@
     const was = this.alarm;
     this.alarm = bg < K.VLOW ? 'vlow' : bg < K.LOW ? 'low' : this.k >= 1.5 ? 'ket' : bg > K.VHIGH ? 'vhigh' : '';
     if (this.alarm !== was) {
-      if (this.alarm === 'low' || this.alarm === 'vlow') { if (was !== 'low' && was !== 'vlow') this.ff = false; this.sfx('low'); }
+      if (this.alarm === 'low' || this.alarm === 'vlow') { if (was !== 'low' && was !== 'vlow') this.calm(); this.sfx('low'); }
       else if (this.alarm === 'ket' || this.alarm === 'vhigh') this.sfx('high');
     }
     if (S.tips) for (const tp of S.tips) if (t0 < tp[0] && t >= tp[0]) this.tip = tp[1];
@@ -161,7 +163,7 @@
   };
 
   G.finish = function (fail) {
-    this.fail = fail; this.mode = fail ? 'fail' : 'done'; this.modeT = 0; this.dial = null; this.ff = false; this.speed = 1;
+    this.fail = fail; this.mode = fail ? 'fail' : 'done'; this.modeT = 0; this.dial = null; this.speed = 1;
     const tir = this.tir();
     const lowP = this.st.low / this.st.all * 100;            // 별 셋: 범위 안 70% 이상이면서 70 아래 4% 미만
     this.stars = fail ? 0 : tir >= 70 ? (lowP < 4 ? 3 : 2) : tir >= 50 ? 2 : 1;
@@ -291,7 +293,7 @@
   };
 
   /* ── 저장·불러오기 ── 스테이지에서 다시 만들 수 있는 것(S·운동 시간표)은 담지 않는다 */
-  const SKIP = { S: 1, sfx: 1, rng: 1, dial: 1, ex: 1 };
+  const SKIP = { S: 1, sfx: 1, rng: 1, dial: 1, ex: 1, speed: 1 };      // speed는 걸음마다 다시 정한다
   G.save = function () {
     const o = {};
     for (const k in this) if (Object.prototype.hasOwnProperty.call(this, k) && !SKIP[k] && typeof this[k] !== 'function') o[k] = this[k];
@@ -311,7 +313,8 @@
     if (!inR(d.t, 0, S.dur) || !inR(d.bg, K.FLOOR, 2000)) bad('시각·혈당 정보가 맞지 않는다.');
     for (const k in NUMS) if (!inR(d[k], NUMS[k][0], NUMS[k][1])) bad('진행 정보가 맞지 않는다(' + k + ').');
     for (const k of STRS) if (typeof d[k] !== 'string' || d[k].length > 200) bad('안내 글 정보가 맞지 않는다.');
-    if (!isI(d.juiceLeft, 0, K.JUICE_PACKS) || typeof d.ff !== 'boolean' || !isI(d.stars, 0, 3)) bad('주스·속도 정보가 맞지 않는다.');
+    const rate = d.rate === undefined && typeof d.ff === 'boolean' ? (d.ff ? 4 : K.RATE0) : d.rate;      // v0.04까지의 판: 빨리 감기는 4배속, 아니면 기본 속도
+    if (!isI(d.juiceLeft, 0, K.JUICE_PACKS) || K.RATES.indexOf(rate) < 0 || !isI(d.stars, 0, 3)) bad('주스·속도 정보가 맞지 않는다.');
     const st = d.st; if (!isO(st) || ['tin', 'low', 'high', 'vlow', 'vhigh', 'all', 'min', 'max'].some(k => !inR(st[k], 0, 1e7))) bad('범위 안 시간 기록이 맞지 않는다.');
     const arr = (k, max, ok) => { const a = d[k]; if (!Array.isArray(a) || a.length > max || !a.every(ok)) bad('판 정보가 맞지 않는다(' + k + ').'); return a; };
     arr('stomach', 80, q => isO(q) && inR(q.q1, 0, 1000) && inR(q.q2, 0, 1000) && inR(q.tau, 1, 600));
@@ -326,7 +329,7 @@
     arr('cells', CELLS.length, q => isO(q) && inR(q.keys, 0, 1e4) && inR(q.open, 0, 1) && inR(q.gulp, 0, 1e4)); if (d.cells.length !== CELLS.length) bad('세포 정보가 맞지 않는다.');
     if (d.keys.some(q => !isI(q.c, 0, CELLS.length - 1)) || d.glu.some(q => !isI(q.c, -1, CELLS.length - 1))) bad('입자 정보가 맞지 않는다.');
     const c = JSON.parse(JSON.stringify(d));
-    g.mode = c.mode; g.t = c.t; g.bg = c.bg; g.juiceLeft = c.juiceLeft; g.ff = c.ff; g.stars = c.stars; g.speed = c.ff ? K.FF : 1;
+    g.mode = c.mode; g.t = c.t; g.bg = c.bg; g.juiceLeft = c.juiceLeft; g.rate = rate; g.stars = c.stars; g.speed = c.mode === 'play' ? rate : 1;
     for (const k in NUMS) if (k !== 'rng') g[k] = c[k];
     for (const k of STRS) g[k] = c[k];
     g.st = c.st; g.stomach = c.stomach; g.inj = c.inj; g.juices = c.juices; g.hist = c.hist; g.marks = c.marks; g.cells = c.cells;
@@ -342,7 +345,7 @@
     return JSON.stringify({
       stage: this.stage + 1, name: this.S.name, mode: this.mode, clock: this.clock(), t: r1(this.t), dur: this.S.dur,
       bg: Math.round(this.bg), trend: r1(this.trend()), icr: this.icr, isf: this.isf, iob: r1(this.iob()), depot: r1(this.depot()), stomach: r1(this.inStomach()), ketone: r1(this.k),
-      exercise: this.exNow() ? this.exNow().name : '', juiceLeft: this.juiceLeft, ff: this.ff, dial: this.dial ? { u: this.dial.u } : null,
+      exercise: this.exNow() ? this.exNow().name : '', juiceLeft: this.juiceLeft, rate: this.rate, dial: this.dial ? { u: this.dial.u } : null,
       alarm: this.alarm, tip: this.tip, tir: Math.round(this.tir()), low: Math.round(st.low / (st.all || 1) * 100), high: Math.round(st.high / (st.all || 1) * 100),
       injections: this.inj.length, units: r1(this.totalU()), juices: this.juices.length, stars: this.stars, fail: this.fail, review: this.review,
       belt: this.foods.filter(f => this.visible(f)).map(f => ({ name: f.name, g: f.g, min: r1(f.t - this.t) })),

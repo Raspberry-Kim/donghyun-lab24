@@ -3,7 +3,7 @@ message: "If you use this software, please cite it using the metadata below."
 title: "Donghyundi (동현디): a single-player pencil-sketch blood glucose education game for type 1 diabetes in mg/dL, with the starting stage and the paper colour set through the esoteric language Donghyun-lang"
 type: software
 doi: "10.5281/zenodo.24522934"
-version: "0.04"
+version: "0.05"
 date-released: "2026-11-25"
 authors:
   - family-names: Kim
@@ -20,7 +20,8 @@ abstract: >-
   game mechanic follows Level One: A Diabetes Game
   (Level Ex, now Relevate Health Games): food arrives on a conveyor belt,
   an insulin button sets and injects a dose, a juice
-  button treats lows, time can be fast-forwarded, glucose, insulin and
+  button treats lows, time runs at double speed by default and can be
+  switched to four times or the original speed, glucose, insulin and
   ketones are shown as particles inside the body, and each stage is scored
   with one to three stars. Unlike the original it uses mg/dL, opens a dose
   ruler with 0.5-unit marks (time keeps running while it is open) instead
