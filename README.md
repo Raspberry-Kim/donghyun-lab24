@@ -1,4 +1,4 @@
-# 동현디 v0.02
+# 동현디 v0.03
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24522934.svg)](https://doi.org/10.5281/zenodo.24522934)
 
@@ -7,7 +7,7 @@
 
 바로 하기: https://raspberry-kim.github.io/donghyun-lab24/
 
-모든 판을 묶는 DOI는 [`10.5281/zenodo.24522934`](https://doi.org/10.5281/zenodo.24522934)이다. 이번 판은 [v0.02 릴리스](https://github.com/Raspberry-Kim/donghyun-lab24/releases/tag/v0.02)이며 Zenodo 보관본은 [records/24524678](https://zenodo.org/records/24524678)(DOI `10.5281/zenodo.24524678`)이다.
+모든 판을 묶는 DOI는 [`10.5281/zenodo.24522934`](https://doi.org/10.5281/zenodo.24522934)이다. 이번 판은 [v0.03 릴리스](https://github.com/Raspberry-Kim/donghyun-lab24/releases/tag/v0.03)이다.
 
 **교육용 게임이다.** 실제 인슐린 용량과 저혈당·아픈 날의 대처는 담당 의료진이 정해 준 계획을 따른다.
 
@@ -37,7 +37,7 @@
 | 5 | 교정 | 높은 혈당을 120으로 내린다 | 14:00–21:00 | 270 | 10 g · 50 |
 | 6 | 겹쳐 맞기 | 남은 인슐린을 빼고 맞는다 | 12:00–18:00 | 150 | 10 g · 50 |
 | 7 | 저혈당과 주스 | 70 아래면 주스 한 팩, 15분 뒤 다시 본다 | 16:00–21:00 | 108 · 몸속 인슐린 2단위 | 10 g · 50 |
-| 8 | 운동 | 운동 앞 식사는 인슐린을 절반으로 | 12:00–17:30 | 120 | 10 g · 50 |
+| 8 | 운동 | 운동 전 식사는 인슐린을 절반으로 | 12:00–17:30 | 120 | 10 g · 50 |
 | 9 | 케톤 | 케톤이 있으면 교정을 20% 더 | 08:00–15:30 | 320 · 케톤 1.8 | 10 g · 50 |
 | 10 | 아픈 날 | 아파도 인슐린을 끊지 않는다 | 08:00–15:00 | 150 · 케톤 0.8 | 10 g · 50 |
 | 11 | 시간대마다 다른 비 | 아침에는 8 g마다, 낮에는 12 g마다 1단위 | 07:00–14:30 | 115 | 8 g · 40, 11:00부터 12 g · 60 |
@@ -83,9 +83,9 @@
 
 - 목표 범위 70–180 mg/dL, 범위 안 시간 70% 이상, 70 아래 4% 미만: [ISPAD 2024 혈당 목표](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC11854972).
 - 70 미만은 저혈당 경보, 54 미만은 뚜렷한 저혈당, 빨리 흡수되는 탄수화물 약 0.3 g/kg: [ISPAD 2022 저혈당](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10107518/). 15분 뒤 다시 재기: [미국당뇨병학회 저혈당 안내](https://professional.diabetes.org/sites/dpro/files/2026-04/whattoknowwithalow-patient-4-26.pdf).
-- 속효성 인슐린을 먹기 10–15분 전에 맞는 것, 탄수화물 비와 교정 계수의 셈, 짧은 간격으로 겹쳐 맞으면 저혈당이 올 수 있다는 것: [ISPAD 2024 인슐린 치료](https://www.ispad.org/static/3b8e00b2-9f33-43a5-a84f9eda1accef64/ICPCG-Chapter-9-2024.pdf).
+- 초속효성 인슐린을 먹기 10–15분 전에 맞는 것, 탄수화물 비와 교정 계수의 셈, 짧은 간격으로 겹쳐 맞으면 저혈당이 올 수 있다는 것: [ISPAD 2024 인슐린 치료](https://www.ispad.org/static/3b8e00b2-9f33-43a5-a84f9eda1accef64/ICPCG-Chapter-9-2024.pdf).
 - 아픈 날에도 인슐린을 끊지 않는 것, 케톤이 있으면 교정 용량을 10%(가벼울 때)·20%(뚜렷할 때) 늘리는 것, 혈중 케톤 3.0 mmol/L 이상이면 응급실: [ISPAD 2022 아픈 날 관리](https://www.ispad.org/static/6551d05a-156c-4772-a32a6d663fcfc2d4/2022CGCh13PediatricDiabetes-2.pdf).
-- 식사 두 시간 안에 유산소 운동을 하면 식사 인슐린을 25–75% 줄이는 것: [ISPAD 2022 운동](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10107219/).
+- 식사 뒤 두 시간 안에 유산소 운동을 하면 식사 인슐린을 25–75% 줄이는 것: [ISPAD 2022 운동](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10107219/).
 - 음식의 탄수화물(곡류군 23 g · 과일군 12 g · 우유군 10 g): [대한당뇨병학회 식품교환표](https://diabetes.or.kr/general/dietary/dietary_03.php).
 
 게임을 위해 정한 것(지침의 값이 아니다)
