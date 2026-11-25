@@ -1,4 +1,4 @@
-# 동현디 v0.07
+# 동현디 v0.12
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24522934.svg)](https://doi.org/10.5281/zenodo.24522934)
 
@@ -7,7 +7,7 @@
 
 바로 하기: https://raspberry-kim.github.io/donghyun-lab24/
 
-모든 판을 묶는 DOI는 [`10.5281/zenodo.24522934`](https://doi.org/10.5281/zenodo.24522934)이다. 이번 판은 [v0.07 릴리스](https://github.com/Raspberry-Kim/donghyun-lab24/releases/tag/v0.07)이며 Zenodo 보관본은 [records/24526711](https://zenodo.org/records/24526711)(DOI `10.5281/zenodo.24526711`)이다.
+모든 판을 묶는 DOI는 [`10.5281/zenodo.24522934`](https://doi.org/10.5281/zenodo.24522934)이다. 이번 판은 [v0.12 릴리스](https://github.com/Raspberry-Kim/donghyun-lab24/releases/tag/v0.12)이다.
 
 **교육용 게임이다.** 실제 인슐린 용량과 저혈당·아픈 날의 대처는 담당 의료진이 정해 준 계획을 따른다.
 
@@ -45,7 +45,7 @@
 
 ‘탄수화물 비’는 인슐린 1단위가 맡는 탄수화물(g), ‘교정 계수’는 인슐린 1단위가 내리는 혈당(mg/dL)이다. 스테이지마다 오는 음식과 운동의 시각은 페이지의 **게임 소개** 탭에 있다.
 
-음식 열 가지: 밥 1/3공기(23 g) · 밥 2/3공기(46 g) · 밥 한 공기(69 g) · 식빵 1쪽(23 g) · 감자 1개(23 g) · 사과 1/3개(12 g) · 딸기 10개(12 g) · 수박 한 쪽(12 g) · 과일주스 반 컵(12 g) · 우유 1컵(10 g).
+음식 열 가지: 밥 1/3공기(23 g) · 밥 2/3공기(46 g) · 밥 한 공기(69 g) · 식빵 1쪽(23 g) · 감자 1개(23 g) · 사과 1/2개(12 g) · 딸기 7개(12 g) · 수박 한 쪽(12 g) · 과일주스 반 컵(12 g) · 우유 1컵(10 g).
 
 ## 조작
 
@@ -86,7 +86,7 @@
 - 초속효성 인슐린을 먹기 10–15분 전에 맞는 것, 탄수화물 비와 교정 계수의 셈, 짧은 간격으로 겹쳐 맞으면 저혈당이 올 수 있다는 것: [ISPAD 2024 인슐린 치료](https://www.ispad.org/static/3b8e00b2-9f33-43a5-a84f9eda1accef64/ICPCG-Chapter-9-2024.pdf).
 - 아픈 날에도 인슐린을 끊지 않는 것, 케톤이 있으면 교정 용량을 10%(가벼울 때)·20%(뚜렷할 때) 늘리는 것, 혈중 케톤 3.0 mmol/L 이상이면 응급실: [ISPAD 2022 아픈 날 관리](https://www.ispad.org/static/6551d05a-156c-4772-a32a6d663fcfc2d4/2022CGCh13PediatricDiabetes-2.pdf).
 - 식사 뒤 두 시간 안에 유산소 운동을 하면 식사 인슐린을 25–75% 줄이는 것: [ISPAD 2022 운동](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10107219/).
-- 음식의 탄수화물(곡류군 23 g · 과일군 12 g · 우유군 10 g): [대한당뇨병학회 식품교환표](https://diabetes.or.kr/general/dietary/dietary_03.php).
+- 음식의 양과 탄수화물(1교환의 탄수화물은 곡류군 23 g · 과일군 12 g · 우유군 10 g): [대한당뇨병학회 식품교환표](https://diabetes.or.kr/general/dietary/dietary_03.php), [2023년 개정(제4판) 해설](https://www.e-jkd.org/upload/pdf/jkd-2024-25-1-42.pdf). ‘1교환’은 1교환단위를 줄인 말로, 같은 식품군 안에서 서로 바꿔 먹을 수 있는 한 몫이다.
 
 게임을 위해 정한 것(지침의 값이 아니다)
 

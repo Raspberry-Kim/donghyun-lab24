@@ -3,7 +3,7 @@ message: "If you use this software, please cite it using the metadata below."
 title: "Donghyundi (동현디): a single-player pencil-sketch blood glucose education game for type 1 diabetes in mg/dL, with the starting stage and the paper colour set through the esoteric language Donghyun-lang"
 type: software
 doi: "10.5281/zenodo.24522934"
-version: "0.07"
+version: "0.12"
 date-released: "2026-11-25"
 authors:
   - family-names: Kim
@@ -34,8 +34,9 @@ abstract: >-
   timing, the insulin-to-carbohydrate ratio, estimating carbohydrate
   without labels, correction doses, insulin on board, hypoglycaemia and
   juice, exercise, ketones, sick days, ratios that change with the time of
-  day, and unannounced snacks. Ten foods follow the one-exchange units of
-  the Korean Diabetes Association food exchange lists. Target range, time
+  day, and unannounced snacks. Ten foods follow the one-exchange units (the amount of a food that
+  can be swapped for another in the same food group) of the Korean
+  Diabetes Association food exchange lists, 2023 revision. Target range, time
   in range, hypoglycaemia thresholds, pre-meal timing, dose arithmetic,
   sick-day and exercise rules follow ISPAD Clinical Practice Consensus
   Guidelines (2022, 2024) and American Diabetes Association patient
