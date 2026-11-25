@@ -7,7 +7,7 @@
 
 바로 하기: https://raspberry-kim.github.io/donghyun-lab24/
 
-모든 판을 묶는 DOI는 [`10.5281/zenodo.24522934`](https://doi.org/10.5281/zenodo.24522934)이다. 이번 판은 [v0.02 릴리스](https://github.com/Raspberry-Kim/donghyun-lab24/releases/tag/v0.02)이다.
+모든 판을 묶는 DOI는 [`10.5281/zenodo.24522934`](https://doi.org/10.5281/zenodo.24522934)이다. 이번 판은 [v0.02 릴리스](https://github.com/Raspberry-Kim/donghyun-lab24/releases/tag/v0.02)이며 Zenodo 보관본은 [records/24524678](https://zenodo.org/records/24524678)(DOI `10.5281/zenodo.24524678`)이다.
 
 **교육용 게임이다.** 실제 인슐린 용량과 저혈당·아픈 날의 대처는 담당 의료진이 정해 준 계획을 따른다.
 
