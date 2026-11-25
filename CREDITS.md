@@ -1,6 +1,6 @@
 # 동현디™: 출처·이용 안내
 
-동현디는 비상업적 교육용 취미 작품이다. 1형 당뇨병 교육 게임 「[Level One: A Diabetes Game](https://playlevelone.com/)」의 게임 방식을 가져와, [동현스](https://github.com/Raspberry-Kim/donghyun-lab21)의 연필 틀 위에 새로 지었다. 치료 도구가 아니다.
+동현디는 비상업적 교육용 취미 작품이다. 1형 당뇨병 교육 게임 「[Level One: A Diabetes Game](https://playlevelone.com/)」의 게임 방식을 가져와, [동현스](https://github.com/Raspberry-Kim/donghyun-lab21)의 연필 틀 위에 새로 지었다. 아이디어를 제안한 부산대학교 의과대학 유석동 교수께 감사드린다. 치료 도구가 아니다.
 
 ## Level One: A Diabetes Game에서 가져온 것
 
