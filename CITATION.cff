@@ -1,0 +1,71 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "Donghyundi (동현디): a single-player pencil-sketch blood glucose education game for type 1 diabetes in mg/dL, with the starting stage and the paper colour set through the esoteric language Donghyun-lang"
+type: software
+version: "0.01"
+date-released: "2026-11-25"
+authors:
+  - family-names: Kim
+    given-names: Dong Hyun
+    orcid: "https://orcid.org/0000-0001-9883-0229"
+    affiliation: "Inha University College of Medicine"
+license: MIT
+abstract: >-
+  Donghyundi is a browser-based, noncommercial educational toy for children
+  and adults with type 1 diabetes and their families. The player looks
+  after a few hours of a child's day and keeps blood glucose within
+  70-180 mg/dL. Its game mechanic follows Level One: A Diabetes Game
+  (Level Ex, now Relevate Health Games): food arrives on a conveyor belt,
+  an insulin button sets and injects a dose, a juice
+  button treats lows, time can be fast-forwarded, glucose, insulin and
+  ketones are shown as particles inside the body, and each stage is scored
+  with one to three stars. Unlike the original it uses mg/dL, opens a dose
+  ruler with 0.5-unit marks (time stands still while it is open) instead
+  of a hold-to-dial button, can save and load a game, runs in a
+  tall 240x420 view meant for phones, is written in Korean, puts the
+  tutorial on the page instead of inside the game, and is drawn by
+  code as wobbly graphite strokes on paper using the pencil engine of
+  Donghyuns. The one image file is the title on the briefing screen,
+  written by hand by the author. Twelve stages teach, in order: a first injection, pre-meal
+  timing, the insulin-to-carbohydrate ratio, estimating carbohydrate
+  without labels, correction doses, insulin on board, hypoglycaemia and
+  juice, exercise, ketones, sick days, ratios that change with the time of
+  day, and unannounced snacks. Ten foods follow the one-exchange units of
+  the Korean Diabetes Association food exchange lists. Target range, time
+  in range, hypoglycaemia thresholds, pre-meal timing, dose arithmetic,
+  sick-day and exercise rules follow ISPAD Clinical Practice Consensus
+  Guidelines (2022, 2024) and American Diabetes Association patient
+  guidance; the time course of insulin and food, the size of the exercise,
+  illness and ketone effects, and the fail and star criteria are
+  simplifying assumptions made for the game and are listed as such on the
+  page and in the README. The starting stage (1-12) and the paper colour
+  (rough cream or sketchbook white) are chosen through a program written
+  in the esoteric programming language Donghyun-lang. Input is mouse or
+  touch, with fullscreen. Clearing all twelve stages is celebrated with
+  falling petals and a short fanfare synthesised in the browser from the
+  trio melody of Elgar's Pomp and Circumstance March No. 1 (1901, public
+  domain); no recording is used. No graphics, sound, text, stage data or
+  code of Level One or any other game is used, and the project is not
+  affiliated with or endorsed by its makers. It is not a medical device
+  and must not be used to decide real insulin doses. The MIT license
+  applies to the Donghyundi code and documentation; the page fonts are
+  under the SIL Open Font License. See LICENSE and CREDITS.md.
+keywords:
+  - type 1 diabetes
+  - diabetes education
+  - blood glucose
+  - serious game
+  - procedural drawing
+  - esoteric programming language
+  - JavaScript
+references:
+  - type: software
+    title: "Donghyun-lang (동현랭): a Korean esoteric programming language with a browser playground"
+    authors:
+      - family-names: Kim
+        given-names: Dong Hyun
+        orcid: "https://orcid.org/0000-0001-9883-0229"
+        affiliation: "Inha University College of Medicine"
+    version: "1.55"
+    license: MIT
+    repository-code: "https://github.com/Raspberry-Kim/donghyun-lang"

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="동현랭으로 스테이지와 종이 색을 정하고, 연필로 그린 몸속에서 인슐린과 주스로 혈당을 70–180 mg/dL 안에 두는 혈당 교육 게임이다.">
+  <title>동현디™ · 연필로 그린 혈당 게임</title>
+  <link rel="icon" type="image/x-icon" sizes="16x16 32x32 48x48" href="./favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="header">
+  <a class="brand" href="#" aria-label="동현디 첫 화면으로"><span class="brand-main"><img class="brand-icon" src="__BRAND_ICON__" alt="" width="96" height="96">동현<span>디</span><sup>TM</sup></span><i class="brand-divider"></i><span class="brand-sub">GLUCOSE GAME<small>연필로 그린 혈당 게임</small></span></a>
+  <div class="edition">v0.01<button id="sound" class="icon-btn" aria-label="효과음 켜기·끄기" title="효과음 (M)" aria-pressed="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 5 6 9H3v6h3l5 4z"/><path class="snd-on" d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/><path class="snd-off" d="m16 9 6 6m0-6-6 6"/></svg></button><button id="theme" class="icon-btn" aria-label="밝은 화면과 어두운 화면 전환" title="화면 전환" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></div>
+</header>
+<main>
+__SERIES_NAV__
+  <section class="intro">
+    <div><div class="eyebrow">GLUCOSE GAME × ESOTERIC LANGUAGE</div><h1>혈당 교육 실험실: <span class="title-brand">동현<span>디</span><sup>TM</sup></span></h1><p>연필로 그린 몸속에서 인슐린과 주스로 혈당을 돌본다.</p></div>
+    <div class="model-stamp"><strong id="stamp-mode">스테이지 1 <span>첫 주사</span></strong><strong>12 <span>스테이지</span></strong><small>1인용 · 스테이지 12 · mg/dL · 마우스·손가락</small><div class="input-marks" role="group" aria-label="입력 표식 · 쓸 수 있는 것: 마우스(손가락) · 전체 화면"><span class="mark off kb" tabindex="0" data-tip="키보드 안 됨 · 게임은 마우스나 손가락으로 한다. <b>Esc</b>로 메뉴를 열 수 있다." aria-label="키보드 안 됨"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><path class="dots" d="M6 10h.01M9.5 10h.01M13 10h.01M16.5 10h.01M6 13h.01M9.5 13h.01M13 13h.01M16.5 13h.01"/><path d="M8 16h8"/></svg></span><span class="mark on ms" tabindex="0" data-tip="마우스·손가락 가능 · 화면 아래 버튼 셋을 누른다. <b>인슐린</b>을 누르면 눈금 판이 열리고, 자를 누르거나 끌어 용량을 정한 뒤 <b>맞는다</b>를 누른다. <b>주스</b>와 <b>빨리 감기</b>는 한 번 누른다." aria-label="마우스·손가락 가능"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="5"/><path d="M12 7v3"/></svg></span><span class="mark off gp" tabindex="0" data-tip="게임패드 안 됨 · 이 실험실은 게임패드로 조작하지 않는다." aria-label="게임패드 안 됨"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6.5" width="20" height="11" rx="4.5"/><path d="M7 9.6v4.8M4.6 12h4.8"/><circle cx="16.6" cy="9.6" r=".85"/><circle cx="14.4" cy="12" r=".85"/><circle cx="18.8" cy="12" r=".85"/><circle cx="16.6" cy="14.4" r=".85"/><path class="dots" d="M11.3 13.4h.01M12.9 13.4h.01"/></svg></span><span class="mark on fs" tabindex="0" data-tip="전체 화면 가능 · 출전한 뒤 화면 아래 <b>전체 화면</b> 버튼으로 게임 화면을 꽉 채울 수 있다." aria-label="전체 화면 가능"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><text class="full" x="12" y="14.6" text-anchor="middle">FULL</text></svg></span></div></div>
+  </section>
+  <nav class="tabs" aria-label="동현디 메뉴"><button class="active" data-tab="play" aria-current="page">판</button><button data-tab="protocol">동현디 출전 규약</button><button data-tab="rules">게임 소개</button><button data-tab="math">수학적 원리</button><button data-tab="about">모델과 출처</button><span>스테이지와 종이 색은 동현랭으로, 인슐린과 주스는 손으로</span></nav>
+  <div class="getting-started"><p><strong>처음이라면?</strong> <b>게임 소개</b>를 먼저 읽고, 예제 01 기본을 골라 <b>출전</b>을 눌러 보자. 시작 스테이지와 종이 색은 <b>동현랭</b>이 출력한 정수로 정한다. 출전하면 설명 없이 바로 게임이 시작된다.</p><a href="https://raspberry-kim.github.io/donghyun-lang/" target="_blank" rel="noopener">동현랭 배우기 · 실행기 ↗</a></div>
+
+  <section id="tab-play" class="tab-panel">
+    <div class="play-grid" id="play-grid">
+      <div class="field-col">
+        <div class="section-title"><h2><span>A</span> 판</h2><span id="status" role="status">출전 준비</span></div>
+        <div class="stage-full" id="stage-full"><button id="exit-full" class="exit-full" type="button" hidden aria-label="전체 화면 닫기">✕ 전체 화면 닫기</button><p class="full-hint" id="full-hint" hidden>원래 화면으로 돌아오려면 오른쪽 위 <b>✕ 전체 화면 닫기</b>를 누른다.</p>
+        <div class="board-wrap" id="board-wrap" tabindex="0" aria-label="동현디 판. 화면 아래의 주스·인슐린·빨리 감기 버튼을 마우스나 손가락으로 누른다.">
+          <div class="board-top"><span id="day">출전 준비</span><span id="turn-badge"></span></div>
+          <div class="board-stage ds-board"><canvas id="game" width="720" height="1260" role="img" aria-label="동현디 게임 화면. 연필로 그린 혈당 그래프와 음식 벨트, 몸속의 포도당과 인슐린">캔버스를 쓸 수 있는 브라우저에서 열어 보자.</canvas>
+            <div id="menu" class="game-menu" hidden role="menu"></div>
+          </div>
+          <div class="board-bottom"><span id="tile-info">판을 미리 보고 있다.</span><span id="hint"></span></div>
+        </div>
+        </div>
+        <div class="board-bar"><button id="full" class="small-btn" type="button" disabled title="게임 화면을 꽉 채운다">전체 화면</button></div>
+        <span id="dbg" hidden></span>
+      </div>
+      <div class="side-col">
+        <section class="setup-panel" id="setup-panel">
+          <div class="section-title"><h2><span>B</span> 동현랭 출전 코드</h2><span>sortie.dh</span></div>
+          <div class="dh-panel">
+            <div class="dh-head"><select id="example" aria-label="동현랭 출전 예제 선택"></select><span class="dh-spacer"></span><button id="run" class="dh-btn dh-run" title="Ctrl/⌘ + Enter"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l12-7.5z"></path></svg>출전 <kbd>⌘↵</kbd></button></div>
+            <div class="code-wrap"><div id="lines" aria-hidden="true"></div><textarea id="code" aria-label="동현랭 출전 코드" spellcheck="false" autocomplete="off" autocapitalize="off"></textarea></div>
+            <div class="code-meta dh-status"><span id="line-count"></span><span>정수 출력 → 스테이지 · 배경 · ⌘/Ctrl ↵ 실행</span></div>
+          </div>
+          <p id="example-note"></p>
+          <div class="sortie-card" id="sortie-card"></div>
+          <p id="result" aria-live="polite">예제를 고른 뒤 출전을 눌러 보자. 시작 스테이지와 종이 색은 코드로 정한다.</p>
+          <div class="file-row"><button id="save">.dh 저장</button><label class="file-label">.dh 열기<input id="open" type="file" accept=".dh,.txt,text/plain" hidden></label></div>
+          <details class="lang-rule"><summary>설정 번호 표</summary><div class="table-wrap"><table><thead><tr><th>자리</th><th>설정</th><th>값</th><th>기본값</th></tr></thead><tbody><tr><td>첫째</td><td>시작 스테이지</td><td>1–12</td><td>반드시 쓴다</td></tr><tr><td>둘째</td><td>배경 색</td><td>1 미색 · 2 스케치북 흰색</td><td>1</td></tr></tbody></table></div></details>
+          <div class="load-box"><div class="load-head"><strong>저장한 판 불러오기</strong><label class="file-label" id="load-label" tabindex="0">파일에서 불러오기<input id="load-file-setup" type="file" accept=".dhsave,.json,application/json" hidden></label></div><div class="slot-list" id="slot-list"></div><p class="slot-note">게임 중에 <b>≡</b> 메뉴의 <b>저장</b>에서 브라우저 칸 3개나 <b>.dhsave</b> 파일로 판을 저장한다. 브라우저 칸은 이 기기의 이 브라우저에만 남고, 사이트 데이터를 지우거나 사생활 보호 창을 닫으면 사라진다. Safari는 이 사이트를 7일 동안 열지 않으면 칸을 지울 수 있다. 오래 둘 판은 <b>.dhsave</b> 파일로 내려받아 두자. 필요 없는 칸은 <b>지우기</b>를 두 번 눌러 비운다.</p></div>
+          <div class="load-box"><div class="load-head"><strong>별 기록</strong><button id="star-reset" class="slot-del" type="button">기록 지우기</button></div><ol class="star-list" id="star-list"></ol><p class="slot-note">스테이지마다 가장 많이 받은 별을 이 기기의 이 브라우저에 적어 둔다. 사이트 데이터를 지우거나 사생활 보호 창을 닫으면 사라진다. 지우려면 <b>기록 지우기</b>를 두 번 누른다.</p></div>
+        </section>
+        <section class="hud" id="hud" hidden>
+          <div class="info-card grid" id="info-card"></div>
+          <div class="log-card"><div class="section-title"><h2><span>C</span> 돌봄 기록</h2><button id="concede" class="small-btn">포기하고 출전 준비로</button></div><ol id="log"></ol></div><input id="load-file" type="file" accept=".dhsave,.json,application/json" hidden>
+          <div class="keys"><span><b>인슐린</b> 누르면 눈금 판이 열린다. 자를 누르거나 끌어 0.5단위 눈금을 정하고 <b>맞는다</b>를 누른다</span><span><b>주스</b> 한 번에 한 팩(15 g)</span><span><b>빨리 감기</b> 한 번 누르면 4배, 다시 누르면 제 속도</span><span><b>≡</b> 메뉴(저장 · 불러오기 · 소리 · 다시 하기 · 포기)</span><span>조작은 마우스나 손가락으로 한다. 키보드는 <kbd>Esc</kbd> 메뉴와 <kbd>M</kbd> 효과음에만 쓴다</span></div>
+        </section>
+      </div>
+    </div>
+    <div class="workflow"><span>동현랭 코드</span><b>→</b><span>시작 스테이지·종이 색</span><b>→</b><span>출전</span><b>→</b><span>먹기 전에 맞고, 높으면 고치고, 낮으면 주스</span><b>→</b><span>열두 스테이지를 마치면 끝</span></div>
+  </section>
+
+  <section id="tab-protocol" class="tab-panel document" hidden>
+    <div class="doc-heading"><div class="eyebrow">SORTIE I/O · v0.01</div><h2>스테이지와 종이 색은 동현랭으로, 돌봄은 손으로.</h2><p>동현랭 프로그램이 출력한 정수를 차례로 읽는다. <b>첫 정수가 시작 스테이지</b>이고 이것만 있으면 바로 시작한다. 둘째 정수는 배경 색이며 생략할 수 있다. 출전한 뒤에는 동현랭을 쓰지 않는다.</p></div>
+    <div class="table-wrap"><table><thead><tr><th>차례</th><th>뜻</th><th>값</th><th>기본값</th></tr></thead><tbody>
+      <tr><td>첫째</td><td>시작 스테이지</td><td>1~12. 1 첫 주사 · 2 미리 맞기 · 3 탄수화물 비 · 4 눈대중 · 5 교정 · 6 겹쳐 맞기 · 7 저혈당과 주스 · 8 운동 · 9 케톤 · 10 아픈 날 · 11 시간대마다 다른 비 · 12 돌발 간식. 고른 스테이지부터 12까지 차례로 이어진다. <b>반드시 있어야 한다</b></td><td>—</td></tr>
+      <tr><td>둘째</td><td>배경 색</td><td>1 미색(거친 미색 종이) · 2 스케치북 흰색. 종이 색이 바뀌면 그림을 모두 새로 그린다</td><td>1</td></tr>
+    </tbody></table></div>
+    <div class="doc-columns"><div><h3>고정된 조건</h3><p><b>1인용</b>이다. 정수가 셋 이상 나오거나 값이 범위를 벗어나면 출전하지 않고 오류를 알려 준다. 정수가 하나도 없으면 스테이지를 정하지 않은 것이라 시작하지 않는다.</p><p>혈당 단위는 <b>mg/dL</b>, 케톤 단위는 mmol/L이다. 탄수화물 비, 교정 계수, 음식과 운동의 차례는 스테이지마다 정해져 있다. 화면은 세로로 긴 240×420칸(4:7)이고 1초에 60걸음으로 움직인다.</p></div>
+    <div><h3>예시</h3><pre class="code-example">나는 동현이냐?
+  ㅋㅋ 스테이지 3
+  뿡뿡 도오오옹~뿡뿡뿡
+  ㅋㅋ 배경 2 · 스케치북 흰색
+  뿡뿡 도오옹~뿡뿡뿡
+동현이구나</pre><p>동현랭 문법은 <a href="https://raspberry-kim.github.io/donghyun-lang/" target="_blank" rel="noopener">동현랭 플레이그라운드</a>에서 배울 수 있다.</p></div></div>
+  </section>
+
+  <section id="tab-rules" class="tab-panel document" hidden>
+    <div class="doc-heading"><div class="eyebrow">HOW TO PLAY</div><h2>먹기 전에 맞고, 높으면 고치고, 낮으면 주스.</h2><p>1형 당뇨병이 있는 아이의 하루 가운데 몇 시간을 맡아, 혈당을 <b>70–180 mg/dL</b> 안에 두는 게임이다. 스테이지 하나는 종이 한 장이고 2–3분이면 끝난다. 버튼은 셋이다. 이 쪽이 튜토리얼이고, 출전하면 설명 없이 바로 시작한다.</p></div>
+    <p class="edu-note"><b>교육용 게임이다.</b> 몸의 반응을 눈으로 보고 원리를 익히도록 단순하게 만들었다. 사람마다 탄수화물 비와 교정 계수가 다르고 같은 사람도 날마다 다르다. 실제 인슐린 용량과 저혈당·아픈 날의 대처는 담당 의료진이 정해 준 계획을 따른다.</p>
+    <div class="doc-columns"><div><p class="input-note">머리글 오른쪽에 붙은 네 아이콘(키보드·마우스·게임패드·전체 화면 FULL)은 입력 표식이다. 켜진 것이 이 실험실에서 쓰는 것이다: <b>마우스(손가락) · 전체 화면</b>. 아이콘에 마우스를 올리거나 손을 대면 풍선 도움말이 뜬다.</p>
+    <h3>한 판의 흐름</h3><ol>
+      <li><b>음식이 온다.</b> 화면 위쪽 벨트를 타고 음식이 오른쪽 끝의 입을 향해 다가온다. 벨트 끝에 닿으면 먹는다.</li>
+      <li><b>먹기 전에 맞는다.</b> 음식이 벨트의 <b>‘15분 전’</b> 표식에 닿을 때 인슐린을 맞는다. 너무 일찍 맞으면 먹기 전에 낮아지고, 늦게 맞으면 먹은 뒤에 높이 오른다.</li>
+      <li><b>높으면 고친다.</b> 혈당이 높게 머물면 교정 용량을 맞는다. 앞서 맞은 인슐린이 몸속에 남아 있으면 그만큼 빼고 맞는다.</li>
+      <li><b>낮으면 주스.</b> 70 아래로 내려가면 주스 한 팩을 마시고 15분쯤 기다려 다시 본다.</li>
+      <li><b>기다린다.</b> 할 일이 없을 때는 빨리 감기로 시간을 보낸다. 정해진 시각이 되면 스테이지가 끝나고 별을 받는다.</li>
+    </ol></div>
+    <div><h3>버튼 셋</h3><div class="table-wrap"><table class="key-table"><tbody>
+      <tr><td><b>주스</b><br>왼쪽</td><td>한 번 누르면 주스 한 팩(탄수화물 15 g)을 마신다. 스테이지마다 네 팩이 있다. 주스는 음식보다 빨리 혈당을 올린다. 너무 많이 마시면 도로 높아진다</td></tr>
+      <tr><td><b>인슐린</b><br>가운데</td><td>누르면 <b>눈금 판</b>이 열리고 시간이 멈춘다. 0부터 15단위까지 0.5단위 눈금이 그어진 자를 <b>누르거나 끌어서</b> 용량을 정하고, <b>−1 · −0.5 · +0.5 · +1</b> 버튼으로 한 눈금씩 고친다. 판에는 그 용량이 맡는 탄수화물(g)과 내리는 혈당(mg/dL)이 함께 적힌다. <b>맞는다</b>를 누르면 들어가고 시간이 다시 흐른다. <b>취소</b>나 Esc를 누르면 맞지 않고 닫힌다</td></tr>
+      <tr><td><b>빨리 감기</b><br>오른쪽</td><td>한 번 누르면 시간이 4배로 흐르고, 다시 누르면 제 속도로 돌아온다. 혈당이 70 아래로 내려가거나 갑자기 간식이 오면 저절로 풀린다</td></tr>
+      <tr><td><b>≡</b><br>오른쪽 위</td><td>메뉴를 연다(Esc도 된다). 계속 한다 · 저장 · 불러오기 · 소리 켜기/끄기 · 이 스테이지 다시 · 포기하고 출전 준비로. <b>저장</b>은 브라우저 칸 3개나 <b>.dhsave</b> 파일에 지금 판을 그대로 담고, <b>불러오기</b>나 출전 준비 화면의 <b>저장한 판 불러오기</b>에서 이어 한다. 불러온 직후에는 멈춘 채로 기다린다</td></tr>
+    </tbody></table></div>
+    <p class="input-note"><b>전체 화면</b>: 출전한 뒤 판 아래 <b>전체 화면</b> 버튼을 누르면 게임 화면이 비율을 지키며 화면을 꽉 채운다. 원래 화면으로 돌아오려면 오른쪽 위 <b>✕ 전체 화면 닫기</b>를 누른다. 요소 전체 화면을 못 쓰는 기기(iPhone Safari)에서는 창을 가득 채우는 방식으로 대신한다.</p></div></div>
+
+    <h3>화면 읽기</h3>
+    <p>화면은 위에서 아래로 다섯 층이다. 맨 위에 시각과 지금 혈당, 그 아래 혈당 그래프, 음식 벨트, 몸속(혈액 방), 그리고 버튼 셋이 있다. 그래프는 지나온 혈당을 선으로 그리고, 두 점선 사이(70–180)가 목표 범위다. 선 위의 작은 표시는 인슐린을 맞은 때, 먹은 때, 주스를 마신 때다.</p>
+    <div class="art-grid wide">
+      <article><canvas width="132" height="132" data-art="arrow" role="img" aria-label="화살표 연필 그림"></canvas><h4>혈당과 화살표</h4><p>맨 위의 큰 숫자가 지금 혈당(mg/dL)이다. 옆의 화살표는 지난 15분 동안 오르내린 빠르기를 기울기로 보여 준다.</p></article>
+      <article><canvas width="132" height="132" data-art="face_ok" role="img" aria-label="얼굴 연필 그림"></canvas><h4>얼굴</h4><p>범위 안이면 웃는다. 70 아래로 내려가면 식은땀을 흘리고, 높으면 얼굴이 달아올라 찡그린다. 아픈 날에는 이마에 수건을 올리고 체온계를 문다.</p></article>
+      <article><canvas width="132" height="132" data-art="f_rice2" role="img" aria-label="밥 연필 그림"></canvas><h4>음식 벨트</h4><p>음식은 먹기 75분 전부터 보인다. 꼬리표에는 탄수화물(g)이 적히고, 첫 두 스테이지에서는 맞을 용량도 적힌다. 꼬리표를 가린 스테이지에서는 그림을 보고 어림한다.</p></article>
+      <article><canvas width="132" height="132" data-art="stomach" role="img" aria-label="위 연필 그림"></canvas><h4>위</h4><p>먹은 음식은 위에서 조금씩 혈액으로 넘어간다. 밥은 천천히, 과일은 조금 빨리, 주스는 금방 넘어간다.</p></article>
+      <article><canvas width="132" height="132" data-art="glu" role="img" aria-label="포도당 연필 그림"></canvas><h4>포도당</h4><p>혈액 방을 떠다니는 작은 육각형이다. 하나가 2 mg/dL이라서, 방이 붐빌수록 혈당이 높다.</p></article>
+      <article><canvas width="132" height="132" data-art="key" role="img" aria-label="인슐린 열쇠 연필 그림"></canvas><h4>인슐린 열쇠</h4><p>맞은 인슐린은 피부 밑에 모였다가 열쇠가 되어 혈액으로 나온다. 열쇠 하나가 0.1단위다. 맞고 나서 한 시간쯤에 가장 많고 네 시간쯤 일한다.</p></article>
+      <article><canvas width="132" height="132" data-art="cell2" role="img" aria-label="세포 연필 그림"></canvas><h4>세포</h4><p>열쇠가 꽂히면 세포의 문이 열리고 포도당을 빨아들인다. 열쇠가 없으면 포도당이 많아도 문이 닫혀 있다.</p></article>
+      <article><canvas width="132" height="132" data-art="ket" role="img" aria-label="케톤 연필 그림"></canvas><h4>케톤</h4><p>인슐린이 모자란 채로 높은 혈당이 이어지거나 아플 때 생긴다. 하나가 0.1 mmol/L이다. 인슐린이 몸속에 있으면 줄어든다.</p></article>
+    </div>
+
+    <div class="doc-columns"><div><h3>별</h3><ul>
+      <li><b>별 셋</b>: 범위 안(70–180)에 있던 시간이 70% 이상이고, 70 아래에 있던 시간이 4% 미만이다.</li>
+      <li><b>별 둘</b>: 범위 안 시간이 50% 이상이다.</li>
+      <li><b>별 하나</b>: 끝까지 마쳤다.</li>
+      <li>내내 범위 안에 있지 않아도 별 셋을 받는다. 조금 벗어났다가 돌아오는 것은 실제로도 흔한 일이다.</li>
+      <li>스테이지가 끝나면 범위 안 시간, 가장 낮았던 값과 높았던 값, 한 줄 되짚기가 나온다. <b>다음 스테이지</b> · <b>다시 한다</b> · <b>출전 준비로</b> 가운데 고른다.</li>
+    </ul></div>
+    <div><h3>다시 해야 하는 때</h3><ul>
+      <li>혈당이 <b>40</b>까지 내려갔다.</li>
+      <li>혈당이 <b>54 아래</b>에 40분 동안 이어서 머물렀다.</li>
+      <li>케톤이 <b>3.0 mmol/L</b>에 닿았다.</li>
+      <li>이때는 그 스테이지를 처음부터 다시 한다. 몇 번이든 다시 할 수 있다.</li>
+    </ul><h3>열두 스테이지를 마치면</h3><p>스테이지 12를 마치면 팡파르와 꽃비로 축하하고 끝난다. 받은 별은 출전 준비 화면의 <b>별 기록</b>에 남는다.</p></div></div>
+
+    <h3>음식</h3>
+    <p>음식의 탄수화물은 대한당뇨병학회 식품교환표의 1교환 단위를 따랐다(곡류군 23 g · 과일군 12 g · 우유군 10 g). 주스 버튼의 주스 한 팩은 15 g이다.</p>
+    <div class="art-grid" id="food-grid"></div>
+
+    <h3>스테이지</h3>
+    <p>앞의 것을 익혀야 뒤의 것을 할 수 있도록 차례를 잡았다. ‘탄수화물 비’는 인슐린 1단위가 맡는 탄수화물(g)이고, ‘교정 계수’는 인슐린 1단위가 내리는 혈당(mg/dL)이다.</p>
+    <div class="table-wrap"><table id="stage-table"></table></div>
+  </section>
+
+  <section id="tab-math" class="tab-panel document" hidden>
+    <div class="doc-heading"><div class="eyebrow">THE MODEL IN EIGHT STEPS</div><h2>혈당이 움직이는 여덟 가지 셈.</h2><p>동현디의 몸은 작은 미분방정식 몇 줄이다. 식사 용량과 교정 용량은 실제 교육에서 쓰는 셈 그대로이고, 인슐린과 음식이 시간에 따라 퍼지는 모양은 게임을 위해 단순하게 정한 가정이다. 어느 쪽인지는 <b>모델과 출처</b>에 나누어 적었다.</p></div>
+    <div class="math-grid">
+      <article><h3><span class="math-num">1</span>식사 용량</h3><p>먹을 탄수화물을 탄수화물 비로 나눈다.</p>
+        <div class="eq big"><math display="block"><mrow><msub><mi>D</mi><mtext>식사</mtext></msub><mo>=</mo><mfrac><mrow><mtext>탄수화물</mtext><mo>(</mo><mi mathvariant="normal">g</mi><mo>)</mo></mrow><mtext>탄수화물 비</mtext></mfrac></mrow></math></div>
+        <p>밥 2/3공기(46 g)를 탄수화물 비 10으로 나누면 4.6이고, 펜의 눈금이 0.5단위라서 4.5단위를 맞는다.</p></article>
+      <article><h3><span class="math-num">2</span>교정 용량과 남은 인슐린</h3><p>목표 120 mg/dL보다 높은 만큼을 교정 계수로 나눈다. 케톤이 있으면 조금 더한다.</p>
+        <div class="eq big"><math display="block"><mrow><msub><mi>D</mi><mtext>교정</mtext></msub><mo>=</mo><mfrac><mrow><mi>G</mi><mo>−</mo><mn>120</mn></mrow><mtext>교정 계수</mtext></mfrac><mo>×</mo><mi>c</mi></mrow></math></div>
+        <p>케톤이 0.6 미만이면 <math><mi>c</mi><mo>=</mo><mn>1</mn></math>, 0.6 이상이면 1.1, 1.5 이상이면 1.2이다. 혈당 270, 교정 계수 50이면 3단위다.</p>
+        <div class="eq"><math display="block"><mrow><mtext>맞을 양</mtext><mo>=</mo><msub><mi>D</mi><mtext>식사</mtext></msub><mo>+</mo><msub><mi>D</mi><mtext>교정</mtext></msub><mo>−</mo><mtext>몸속에 남은 인슐린</mtext></mrow></math></div></article>
+      <article><h3><span class="math-num">3</span>인슐린이 퍼지는 모양</h3><p>맞은 인슐린은 세 칸을 차례로 지난다. 피부 밑 두 칸(<math><msub><mi>x</mi><mn>1</mn></msub></math>, <math><msub><mi>x</mi><mn>2</mn></msub></math>)과 혈액(<math><msub><mi>x</mi><mn>3</mn></msub></math>)이고, 한 칸에 머무는 시간은 <math><mi>τ</mi><mo>=</mo><mn>30</mn></math>분이다.</p>
+        <div class="eq"><div class="eq-run"><math display="block"><mrow><mfrac><mrow><mi>d</mi><msub><mi>x</mi><mn>1</mn></msub></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mo>−</mo><mfrac><msub><mi>x</mi><mn>1</mn></msub><mi>τ</mi></mfrac><mo>,</mo></mrow></math><math display="block"><mrow><mfrac><mrow><mi>d</mi><msub><mi>x</mi><mn>2</mn></msub></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>−</mo><msub><mi>x</mi><mn>2</mn></msub></mrow><mi>τ</mi></mfrac><mo>,</mo></mrow></math><math display="block"><mrow><mfrac><mrow><mi>d</mi><msub><mi>x</mi><mn>3</mn></msub></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><msub><mi>x</mi><mn>2</mn></msub><mo>−</mo><msub><mi>x</mi><mn>3</mn></msub></mrow><mi>τ</mi></mfrac></mrow></math></div></div>
+        <p>혈액에서 빠져나가는 양 <math><msub><mi>x</mi><mn>3</mn></msub><mo>/</mo><mi>τ</mi></math>가 그 순간 일한 인슐린이다. 맞고 60분에 가장 세게 일하고, 4시간이면 98.6%가 일을 마친다. 몸속에 남은 인슐린은 세 칸의 합이다.</p></article>
+      <article><h3><span class="math-num">4</span>음식이 넘어가는 모양</h3><p>먹은 탄수화물은 위의 두 칸(<math><msub><mi>q</mi><mn>1</mn></msub></math>, <math><msub><mi>q</mi><mn>2</mn></msub></math>)을 지나 혈액으로 간다. 한 칸에 머무는 시간 <math><msub><mi>τ</mi><mi>f</mi></msub></math>는 음식마다 다르다.</p>
+        <div class="eq"><div class="eq-run"><math display="block"><mrow><mfrac><mrow><mi>d</mi><msub><mi>q</mi><mn>1</mn></msub></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mo>−</mo><mfrac><msub><mi>q</mi><mn>1</mn></msub><msub><mi>τ</mi><mi>f</mi></msub></mfrac><mo>,</mo></mrow></math><math display="block"><mrow><mfrac><mrow><mi>d</mi><msub><mi>q</mi><mn>2</mn></msub></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><msub><mi>q</mi><mn>1</mn></msub><mo>−</mo><msub><mi>q</mi><mn>2</mn></msub></mrow><msub><mi>τ</mi><mi>f</mi></msub></mfrac></mrow></math></div></div>
+        <div class="math-table-wrap"><table class="math-table"><thead><tr><th>음식</th><th><math><msub><mi>τ</mi><mi>f</mi></msub></math>(분)</th></tr></thead><tbody><tr><td>밥 · 감자 · 우유</td><td>25</td></tr><tr><td>식빵</td><td>22</td></tr><tr><td>사과</td><td>14</td></tr><tr><td>딸기 · 수박</td><td>12</td></tr><tr><td>과일주스 · 주스 한 팩</td><td>8</td></tr></tbody></table></div></article>
+      <article><h3><span class="math-num">5</span>혈당이 변하는 빠르기</h3><p>넘어온 탄수화물은 혈당을 올리고, 일한 인슐린은 내린다. 운동과 아픈 날은 여기에 한 줄씩 더한다.</p>
+        <div class="eq big"><math display="block"><mrow><mfrac><mrow><mi>d</mi><mi>G</mi></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mfrac><mtext>교정 계수</mtext><mtext>탄수화물 비</mtext></mfrac><mo>·</mo><mfrac><msub><mi>q</mi><mn>2</mn></msub><msub><mi>τ</mi><mi>f</mi></msub></mfrac><mo>−</mo><mtext>교정 계수</mtext><mo>·</mo><mi>e</mi><mo>·</mo><mfrac><msub><mi>x</mi><mn>3</mn></msub><mi>τ</mi></mfrac><mo>−</mo><mi>m</mi><mo>+</mo><mi>s</mi></mrow></math></div>
+        <p>탄수화물 1 g은 혈당을 교정 계수 ÷ 탄수화물 비만큼 올린다(탄수화물 비 10, 교정 계수 50이면 5 mg/dL). 그래서 식사 용량을 제때 맞으면 오른 만큼 내려온다.</p>
+        <div class="math-table-wrap"><table class="math-table"><thead><tr><th>상태</th><th>혈당</th><th>인슐린 효과 <math><mi>e</mi></math></th></tr></thead><tbody><tr><td>평소</td><td>가만두면 평평하다</td><td>1</td></tr><tr><td>운동하는 동안</td><td><math><mi>m</mi></math> = 시간당 90 내림</td><td>× 1.5</td></tr><tr><td>아픈 날</td><td><math><mi>s</mi></math> = 시간당 12 오름</td><td>× 0.85</td></tr><tr><td>케톤 0.6 이상</td><td>—</td><td>÷ 1.1</td></tr><tr><td>케톤 1.5 이상</td><td>—</td><td>÷ 1.2</td></tr></tbody></table></div></article>
+      <article><h3><span class="math-num">6</span>케톤</h3><p>케톤 <math><mi>K</mi></math>(mmol/L)는 몸속 인슐린이 있느냐로 갈린다.</p>
+        <div class="math-table-wrap"><table class="math-table"><thead><tr><th>조건</th><th>케톤</th></tr></thead><tbody><tr><td>몸속에 남은 인슐린이 0.2단위보다 많다</td><td>시간당 0.6 줄어든다</td></tr><tr><td>인슐린이 없고, 아픈 날이다</td><td>시간당 0.45 늘어난다</td></tr><tr><td>인슐린이 없고, 혈당이 250 이상이며, 케톤이 이미 0.6 이상이거나 250 이상이 두 시간 넘게 이어졌다</td><td>시간당 0.45 늘어난다</td></tr><tr><td>그 밖</td><td>그대로</td></tr></tbody></table></div>
+        <p>3.0에 닿으면 그 스테이지를 다시 한다. 케톤을 줄이는 것은 주스나 기다림이 아니라 인슐린이다.</p></article>
+      <article><h3><span class="math-num">7</span>범위 안 시간과 별</h3>
+        <div class="eq big"><math display="block"><mrow><mtext>범위 안 시간</mtext><mo>=</mo><mfrac><mrow><mn>70</mn><mo>≤</mo><mi>G</mi><mo>≤</mo><mn>180</mn><mtext>인 시간</mtext></mrow><mtext>전체 시간</mtext></mfrac><mo>×</mo><mn>100</mn></mrow></math></div>
+        <div class="math-table-wrap"><table class="math-table"><thead><tr><th>별</th><th>조건</th></tr></thead><tbody><tr><td>★★★</td><td>범위 안 시간 70% 이상이고 70 아래 시간 4% 미만</td></tr><tr><td>★★</td><td>범위 안 시간 50% 이상</td></tr><tr><td>★</td><td>끝까지 마침</td></tr><tr><td>다시</td><td>혈당 40 이하 · 54 아래 40분 연속 · 케톤 3.0 이상</td></tr></tbody></table></div></article>
+      <article><h3><span class="math-num">8</span>시간과 입자</h3><p>한 걸음은 게임 속 0.04분이고 1초에 60걸음이다.</p>
+        <div class="math-table-wrap"><table class="math-table"><thead><tr><th>속도</th><th>1초에 흐르는 시간</th></tr></thead><tbody><tr><td>제 속도</td><td>2.4분</td></tr><tr><td>빨리 감기(4배)</td><td>9.6분</td></tr><tr><td>눈금 판이 열린 동안</td><td>0분(멈춤)</td></tr></tbody></table></div>
+        <p>화면의 입자는 수치를 그대로 센 것이다. 포도당 하나가 2 mg/dL, 열쇠 하나가 인슐린 0.1단위, 케톤 하나가 0.1 mmol/L이다. 음식은 먹기 75분 전에 벨트에 나타나고, 벨트의 1분은 2칸이다.</p></article>
+    </div>
+    <p class="math-foot">이 셈은 교육용으로 단순하게 만든 것이다. 실제 몸에서는 탄수화물 비와 교정 계수가 시간대와 날마다 다르고, 지방·단백질·스트레스·주사 부위 같은 것들도 혈당을 바꾼다.</p>
+  </section>
+
+  <section id="tab-about" class="tab-panel document" hidden>
+    <div class="doc-heading"><div class="eyebrow">WHAT IS NEW, WHAT IS BORROWED</div><h2>게임 방식을 가져오고, 그림·소리·글·코드는 새로 만들었다.</h2><p>동현디는 1형 당뇨병 교육 게임 「Level One: A Diabetes Game」(<a href="https://playlevelone.com/features/" target="_blank" rel="noopener">playlevelone.com</a>)의 게임 방식을 가져온 실험이다. 음식이 벨트를 타고 오고, 인슐린 버튼으로 용량을 정해 맞고, 낮으면 주스를 마시고, 몸속의 포도당과 인슐린을 입자로 보여 주며, 별 셋까지 받는 방식이 그것이다.</p></div>
+    <div class="science-block"><span class="index">01</span><div><h3>원작의 그림·소리·글·자료는 담지 않았다.</h3><p>원작의 그래픽, 음악·효과음, 글, 스테이지 자료, 코드는 쓰지 않았다. 원작은 휴대폰 앱이고 영어이며, 동현디는 원작의 공개 설명(<a href="https://playlevelone.com/features/" target="_blank" rel="noopener">기능 소개</a>, <a href="https://playlevelone.com/2024/04/10/game-design-document/" target="_blank" rel="noopener">개발 블로그</a>, <a href="https://playlevelone.com/faq/" target="_blank" rel="noopener">자주 묻는 질문</a>)을 읽고 방식을 옮겼다. 몸의 셈, 스테이지 열두 개, 음식, 말은 동현디에서 새로 만들었다.</p></div></div>
+    <div class="science-block"><span class="index">02</span><div><h3>원작과 다른 점.</h3><p>혈당 단위는 우리나라와 미국에서 쓰는 <b>mg/dL</b>이다. 스테이지는 열둘이고, 음식은 대한당뇨병학회 식품교환표의 1교환 단위로 골랐다. 인슐린 용량은 버튼을 누르고 있는 동안 오르는 방식 대신, 버튼을 누르면 열리는 <b>눈금 판</b>에서 0.5단위 눈금을 정해 맞는다. 판이 열린 동안에는 시간이 멈춘다. 튜토리얼과 안내하는 사람은 게임 안에 두지 않고 <b>게임 소개</b> 쪽에 글로 적었다. 판은 브라우저 칸과 파일로 저장하고 불러온다. 시작 스테이지와 종이 색은 동현랭으로 정한다. 배경 음악은 없고 효과음이 있다.</p></div></div>
+    <div class="science-block"><span class="index">03</span><div><h3>지침에서 가져온 것.</h3><p>목표 범위 70–180 mg/dL와 범위 안 시간 70% 이상, 70 아래 4% 미만은 <a href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC11854972" target="_blank" rel="noopener">ISPAD 2024 혈당 목표</a>를 따랐다. 70 미만을 저혈당 경보, 54 미만을 뚜렷한 저혈당으로 보는 것과 빨리 흡수되는 탄수화물 약 0.3 g/kg(주스 한 팩 15 g은 체중 50 kg쯤의 양)은 <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10107518/" target="_blank" rel="noopener">ISPAD 2022 저혈당</a>, 15분 뒤 다시 재는 것은 <a href="https://professional.diabetes.org/sites/dpro/files/2026-04/whattoknowwithalow-patient-4-26.pdf" target="_blank" rel="noopener">미국당뇨병학회 저혈당 안내</a>를 따랐다. 속효성 인슐린을 먹기 10–15분 전에 맞는 것, 탄수화물 비와 교정 계수의 셈, 짧은 간격으로 겹쳐 맞으면 저혈당이 올 수 있다는 것은 <a href="https://www.ispad.org/static/3b8e00b2-9f33-43a5-a84f9eda1accef64/ICPCG-Chapter-9-2024.pdf" target="_blank" rel="noopener">ISPAD 2024 인슐린 치료</a>에 있다.</p><p>아픈 날에 인슐린을 끊지 않는 것, 케톤이 있으면 교정 용량을 10%(가벼울 때)·20%(뚜렷할 때) 늘리는 것, 혈중 케톤 3.0 mmol/L 이상이면 응급실로 가야 한다는 것은 <a href="https://www.ispad.org/static/6551d05a-156c-4772-a32a6d663fcfc2d4/2022CGCh13PediatricDiabetes-2.pdf" target="_blank" rel="noopener">ISPAD 2022 아픈 날 관리</a>, 식사 두 시간 안에 유산소 운동을 하면 식사 인슐린을 25–75% 줄이는 것은 <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10107219/" target="_blank" rel="noopener">ISPAD 2022 운동</a>을 따랐다. 음식의 탄수화물은 <a href="https://diabetes.or.kr/general/dietary/dietary_03.php" target="_blank" rel="noopener">대한당뇨병학회 식품교환표</a>의 값이다.</p></div></div>
+    <div class="science-block"><span class="index">04</span><div><h3>게임을 위해 정한 것.</h3><p>다음은 지침의 값이 아니라 게임이 돌아가도록 정한 가정이다. 기저 인슐린이 잘 맞아 가만두면 혈당이 평평하다. 인슐린은 30분짜리 세 칸, 음식은 두 칸을 지난다. 탄수화물 1 g이 올리는 혈당은 교정 계수 ÷ 탄수화물 비로 고정했다. 운동은 시간당 90을 내리고 인슐린 효과를 1.5배로, 아픈 날은 시간당 12를 올리고 효과를 0.85배로 했다. 케톤이 가벼운 때와 뚜렷한 때를 0.6과 1.5에서 가른 것, 케톤이 늘고 주는 빠르기, 다시 해야 하는 기준(혈당 40, 54 아래 40분, 케톤 3.0), 별의 기준도 게임의 규칙이다.</p><p>담지 않은 것도 있다. 운동한 날 밤에 늦게 오는 저혈당, 지방과 단백질, 기저 인슐린 조절, 인슐린 펌프와 연속혈당측정기의 지연, 글루카곤은 나오지 않는다. 체중을 따로 두지 않아서 주스는 늘 15 g이다.</p></div></div>
+    <div class="science-block"><span class="index">05</span><div><h3>치료 도구가 아니다.</h3><p>동현디는 원리를 익히는 교육용 게임이다. 실제 혈당을 적거나 실제 용량을 정하는 데 쓰지 않는다. 게임 속 탄수화물 비 10과 교정 계수 50은 셈하기 쉽게 고른 수이고, 실제 값은 사람마다 다르며 담당 의료진이 정한다. 저혈당, 아픈 날, 케톤이 있을 때의 대처도 의료진이 정해 준 계획을 따른다.</p></div></div>
+    <div class="science-block"><span class="index">06</span><div><h3>그림은 코드가 그린다.</h3><p>음식, 세포, 열쇠, 얼굴, 버튼, 그래프, 종이의 결은 모두 페이지가 열릴 때 코드가 연필 선을 그어 만든다. 선은 조금씩 흔들리게 두세 번 겹쳐 긋고, 그늘은 빗금으로 넣었다. 색은 흑연과 종이 둘이고, 높고 낮음은 빗금의 짙기와 글로 알린다. 종이는 미색과 스케치북 흰색 가운데 고를 수 있다. 그림 파일은 출전 준비 화면의 제목 한 장이다.</p></div></div>
+    <div class="science-block"><span class="index">07</span><div><h3>상표와 관계</h3><p>Level One: A Diabetes Game은 Level Ex(지금의 Relevate Health Games)가 만들었다(<a href="https://www.breakthrought1d.org/news-and-updates/new-video-game-teaches-type-1-diabetes-management/" target="_blank" rel="noopener">Breakthrough T1D</a>, <a href="https://www.cnn.com/health/after-daughters-diagnosis-this-dad-built-app-to-manage-diabetes-spc" target="_blank" rel="noopener">CNN</a>). 동현디는 이들과 관계가 없고, 승인이나 후원을 받지 않았다. 원작은 <a href="https://apps.apple.com/us/app/level-one-a-diabetes-game/id6739605694" target="_blank" rel="noopener">App Store</a>와 <a href="https://play.google.com/store/apps/details?id=com.medlevelex.diabetes&amp;hl=en_US" target="_blank" rel="noopener">Google Play</a>에서 무료로 받을 수 있다.</p></div></div>
+    <div class="science-block"><span class="index">08</span><div><h3>코드와 글꼴의 이용 조건</h3><p>동현디 코드는 MIT, 글꼴(검은고딕 Black Han Sans · Pretendard · 나눔고딕코딩 · 개구 Gaegu)은 SIL Open Font License를 따른다. 게임 화면의 글은 손글씨 글꼴 Gaegu에서 쓰는 글자만 추려 담았다. 출전 준비 화면의 제목 ‘동현디’는 글꼴이 아니라 제작자 본인이 직접 쓴 글씨이고, 이 글씨의 권리는 MIT와 별개로 쓴 사람에게 있다. 동현랭 실행기는 동현랭 저장소의 MIT 코드를 그대로 쓴다.</p></div></div>
+    <aside class="maker-note"><span class="eyebrow">만든 사람</span><a class="sponsor-btn" href="https://github.com/sponsors/Raspberry-Kim" target="_blank" rel="noopener" aria-label="GitHub Sponsors로 동현랭 후원하기" title="GitHub Sponsors로 후원하기"><svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M7.655 14.916v-.001h-.002l-.006-.003-.018-.01a22.066 22.066 0 0 1-3.744-2.584C2.045 10.731 0 8.35 0 5.5 0 2.836 2.086 1 4.25 1 5.797 1 7.153 1.802 8 3.02 8.847 1.802 10.203 1 11.75 1 13.914 1 16 2.836 16 5.5c0 2.85-2.044 5.231-3.886 6.818a22.094 22.094 0 0 1-3.433 2.414 7.152 7.152 0 0 1-.31.17l-.018.01-.008.004a.75.75 0 0 1-.69 0Z"></path></svg>후원</a><p>인하대학교 의과대학 김동현 교수는 백신학·감염학을 연구한다. 명랑하고 따뜻한 개발을 지향한다.</p></aside>
+  </section>
+</main>
+<footer><span>동현디 v0.01 · 인하대학교 의과대학 교수 김동현</span><span>1인용 · 스테이지 12 · mg/dL</span><span><a href="https://raspberry-kim.github.io/donghyun-lang/" target="_blank" rel="noopener">동현랭</a> · <a href="https://github.com/Raspberry-Kim/donghyun-lang" target="_blank" rel="noopener">동현랭 GitHub</a> · <a href="https://github.com/Raspberry-Kim/donghyun-lab24" target="_blank" rel="noopener">동현디 GitHub</a> · <a href="https://raspberry-kim.github.io/donghyun-lab1/" target="_blank" rel="noopener">동현초</a> · <a href="https://raspberry-kim.github.io/donghyun-lab2/" target="_blank" rel="noopener">동현파</a> · <a href="https://raspberry-kim.github.io/donghyun-lab3/" target="_blank" rel="noopener">동현빌</a> · <a href="https://raspberry-kim.github.io/donghyun-lab4/" target="_blank" rel="noopener">동현전</a> · <a href="https://raspberry-kim.github.io/donghyun-lab5/" target="_blank" rel="noopener">동현콥</a> · <a href="https://raspberry-kim.github.io/donghyun-lab6/" target="_blank" rel="noopener">동현텐</a> · <a href="https://raspberry-kim.github.io/donghyun-lab7/" target="_blank" rel="noopener">동현워</a> · <a href="https://raspberry-kim.github.io/donghyun-lab8/" target="_blank" rel="noopener">동현둠</a> · <a href="https://raspberry-kim.github.io/donghyun-lab9/" target="_blank" rel="noopener">동현크</a> · <a href="https://raspberry-kim.github.io/donghyun-lab10/" target="_blank" rel="noopener">동현몬</a> · <a href="https://raspberry-kim.github.io/donghyun-lab11/" target="_blank" rel="noopener">동현주</a> · <a href="https://raspberry-kim.github.io/donghyun-lab12/" target="_blank" rel="noopener">동현심</a> · <a href="https://raspberry-kim.github.io/donghyun-lab13/" target="_blank" rel="noopener">동현램</a> · <a href="https://raspberry-kim.github.io/donghyun-lab14/" target="_blank" rel="noopener">동현큐</a> · <a href="https://raspberry-kim.github.io/donghyun-lab15/" target="_blank" rel="noopener">동현닥</a> · <a href="https://raspberry-kim.github.io/donghyun-lab16/" target="_blank" rel="noopener">동현삼</a> · <a href="https://raspberry-kim.github.io/donghyun-lab17/" target="_blank" rel="noopener">동현항</a> · <a href="https://raspberry-kim.github.io/donghyun-lab18/" target="_blank" rel="noopener">동현테</a> · <a href="https://raspberry-kim.github.io/donghyun-lab19/" target="_blank" rel="noopener">동현레</a> · <a href="https://raspberry-kim.github.io/donghyun-lab20/" target="_blank" rel="noopener">동현페</a> · <a href="https://raspberry-kim.github.io/donghyun-lab21/" target="_blank" rel="noopener">동현스</a> · <a href="https://raspberry-kim.github.io/donghyun-lab22/" target="_blank" rel="noopener">동현촙</a> · <a href="https://raspberry-kim.github.io/donghyun-lab23/" target="_blank" rel="noopener">동현잠</a></span></footer>
+<script src="./game.js"></script>
+<script>
+/* 입력 표식 풍선 도움말 */
+(function(){var tip=null,timer=0,cur=null;
+function el(){ if(!tip){ tip=document.createElement('div'); tip.className='mark-tip'; tip.setAttribute('role','tooltip'); document.body.appendChild(tip);} return tip; }
+function show(m){ var t=el(); clearTimeout(timer); cur=m; t.innerHTML=m.getAttribute('data-tip'); t.classList.add('show');
+  var r=m.getBoundingClientRect(); t.style.left='0px'; t.style.top='0px'; var w=t.offsetWidth, x=r.left+r.width/2-w/2; x=Math.max(12,Math.min(x,innerWidth-w-12));
+  t.style.left=x+'px'; t.style.top=(r.bottom+10)+'px'; t.style.setProperty('--ax',(r.left+r.width/2-x)+'px'); }
+function hide(ms){ clearTimeout(timer); timer=setTimeout(function(){ if(tip) tip.classList.remove('show'); cur=null; },ms||0); }
+document.querySelectorAll('.input-marks .mark').forEach(function(m){
+  m.addEventListener('pointerenter',function(e){ if(e.pointerType==='mouse') show(m); });
+  m.addEventListener('pointerleave',function(e){ if(e.pointerType==='mouse') hide(120); });
+  m.addEventListener('pointerdown',function(e){ if(e.pointerType!=='mouse') show(m); });
+  m.addEventListener('pointerup',function(e){ if(e.pointerType!=='mouse') hide(3000); });
+  m.addEventListener('pointercancel',function(e){ if(e.pointerType!=='mouse') hide(3000); });
+  m.addEventListener('focus',function(){ if(m.matches(':focus-visible')) show(m); }); m.addEventListener('blur',function(){ hide(0); });
+});
+addEventListener('scroll',function(){ if(cur) hide(0); },{passive:true});
+})();
+</script>
+</body></html>
