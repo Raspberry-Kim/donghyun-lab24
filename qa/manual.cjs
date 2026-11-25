@@ -16,13 +16,13 @@ const path = require('path'), fs = require('fs');
   out('출전 뒤', await st());
   out('캔버스', await pg.evaluate(() => { const c = document.querySelector('#game').getBoundingClientRect(); return { x: Math.round(c.left), y: Math.round(c.top), w: Math.round(c.width), h: Math.round(c.height), vw: innerWidth, vh: innerHeight, over: document.documentElement.scrollWidth - innerWidth }; }));
   await shot('1-play');
-  // 인슐린: 누르면 눈금 판이 열리고 시간이 멈춘다
+  // 인슐린: 누르면 눈금 판이 열리고, 판이 열린 동안에도 시간은 흐른다
   const tap = async (x, y) => { const q = await pt(x, y); await pg.mouse.click(q[0], q[1]); await pg.waitForTimeout(120); };
   const D = await pg.evaluate(() => { const d = DS.UI.dial; return { r: d.ruler, steps: d.steps, ok: d.ok, cancel: d.cancel, max: DS.K.DIAL_MAX }; });
   const rx = u => D.r.x0 + (D.r.x1 - D.r.x0) * u / D.max, mid = b => [b.x + b.w / 2, b.y + b.h / 2];
   let bad = 0; const want = (k, got, exp) => { const ok = JSON.stringify(got) === JSON.stringify(exp); if (!ok) bad++; out((ok ? 'ok  ' : 'BAD ') + k, got); };
   await tap(120, 380); const s0 = await st(); want('판 열림', s0.dial, 0); await shot('2-dial0');
-  await pg.waitForTimeout(700); want('시간 멈춤', (await st()).t, s0.t);
+  await pg.waitForTimeout(700); want('판이 열린 동안 시간이 흐름', (await st()).t > s0.t + 1, true);
   await tap(...mid(D.ok)); want('0단위는 안 맞음', (await st()).inj, []);
   // 자의 눈금을 하나하나 눌러 본다: 0~15단위, 0.5 간격
   const miss = []; for (let i = 0; i <= D.max * 2; i++) { await tap(rx(i / 2), D.r.ly - 4); const u = (await st()).dial; if (u !== i / 2) miss.push([i / 2, u]); }

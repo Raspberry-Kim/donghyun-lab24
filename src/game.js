@@ -70,8 +70,8 @@
   G.parAt = function (t) { let icr = this.S.icr, isf = this.S.isf; for (const s of (this.S.sched || [])) if (t >= s.t) { icr = s.icr; isf = s.isf; } return { icr: icr, isf: isf }; };
 
   /* ── 조작 ── */
-  /* 인슐린 버튼을 누르면 눈금 판이 열린다. 판이 열린 동안에는 시간이 멈추고, 눈금을 정한 뒤 '맞는다'를 눌러야 들어간다 */
-  G.dialOpen = function () { if (this.mode !== 'play' || this.dial) return false; this.dial = { u: 0 }; this.sfx('tick'); return true; };
+  /* 인슐린 버튼을 누르면 눈금 판이 열린다. 판이 열린 동안에도 시간은 제 속도로 흐르고(빨리 감기는 풀린다), 눈금을 정한 뒤 '맞는다'를 눌러야 들어간다 */
+  G.dialOpen = function () { if (this.mode !== 'play' || this.dial) return false; this.dial = { u: 0 }; this.ff = false; this.sfx('tick'); return true; };
   G.dialSet = function (u) {
     const d = this.dial; if (!d) return 0;
     u = Math.max(0, Math.min(K.DIAL_MAX, half(u)));
@@ -107,7 +107,6 @@
     if (this.noteT > 0) this.noteT--; if (this.pulse > 0) this.pulse--; if (this.sip > 0) this.sip--;
     if (this.mode === 'intro') { if (this.modeT >= 70) { this.mode = 'play'; this.modeT = 0; } this.visual(1); return; }
     if (this.mode !== 'play') { this.visual(1); return; }
-    if (this.dial) { this.speed = 0; this.visual(1); return; }            // 눈금 판이 열린 동안에는 시간이 멈춘다
     const reps = this.ff ? K.FF : 1, dt = K.DT;
     this.speed = reps;
     for (let i = 0; i < reps && this.mode === 'play'; i++) this.physio(dt);
