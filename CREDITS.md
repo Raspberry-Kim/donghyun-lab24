@@ -14,7 +14,7 @@
 - 혈당 단위는 mg/dL이다.
 - 인슐린 용량은 버튼을 누르고 있는 동안 오르는 방식 대신, 버튼을 누르면 열리는 눈금 판에서 0.5단위 눈금을 정해 맞는다. 판이 열린 동안에도 시간은 흐른다.
 - 판을 브라우저 칸과 `.dhsave` 파일로 저장하고 불러온다.
-- 스테이지는 열둘이고, 음식은 대한당뇨병학회 식품교환표의 1교환단위로 골랐다.
+- 스테이지는 열둘이고, 음식은 대한당뇨병학회 식품교환표(2023년 제4판)의 1교환단위(같은 식품군 안에서 서로 바꿔 먹을 수 있는 한 몫, 줄여서 ‘1교환’)로 골랐다.
 - 튜토리얼은 게임 안에 두지 않고 페이지의 게임 소개 탭에 글로 적었다.
 - 시작 스테이지와 종이 색은 동현랭으로 정한다.
 - 화면은 연필 선으로 그린 세로 240×420칸이다.
@@ -38,7 +38,7 @@
 - 인슐린 치료: [ISPAD Clinical Practice Consensus Guidelines 2024: Insulin Treatment](https://www.ispad.org/static/3b8e00b2-9f33-43a5-a84f9eda1accef64/ICPCG-Chapter-9-2024.pdf).
 - 아픈 날과 케톤: [ISPAD Clinical Practice Consensus Guidelines 2022: Sick Day Management](https://www.ispad.org/static/6551d05a-156c-4772-a32a6d663fcfc2d4/2022CGCh13PediatricDiabetes-2.pdf).
 - 운동: [ISPAD Clinical Practice Consensus Guidelines 2022: Exercise](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10107219/).
-- 음식의 탄수화물: [대한당뇨병학회 식품교환표](https://diabetes.or.kr/general/dietary/dietary_03.php).
+- 음식의 양과 탄수화물: [대한당뇨병학회 식품교환표](https://diabetes.or.kr/general/dietary/dietary_03.php), [2023 당뇨병 식품교환표 개정과 식사계획을 위한 활용 지침](https://www.e-jkd.org/upload/pdf/jkd-2024-25-1-42.pdf).
 - 인슐린과 음식이 시간에 따라 퍼지는 모양, 운동·아픈 날·케톤의 크기, 다시 해야 하는 기준과 별의 기준은 지침의 값이 아니라 게임을 위해 정한 가정이다. `README.md`의 ‘근거와 가정’에 적었다.
 
 ## 승리 팡파르와 꽃비
