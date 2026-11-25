@@ -237,7 +237,7 @@
     const D = UI.dial, P = D.panel, r = D.ruler, T = (s, x, y, px, al, a) => this.text(s, x, y, px, al, a);
     this.c.globalAlpha = 0.97; this.c.drawImage(this.paper, P.x * S, P.y * S, P.w * S, P.h * S, P.x * S, P.y * S, P.w * S, P.h * S); this.c.globalAlpha = 1;
     this.box(P.x, P.y, P.w, P.h, 60, 1.3, 0.95);
-    T('인슐린 눈금', 14, 257, 9, 'left', 0.85); T('시간이 멈춰 있다', 226, 257, 7.4, 'right', 0.7);
+    T('인슐린 눈금', 14, 257, 9, 'left', 0.85); T('시간은 흐른다', 226, 257, 7.4, 'right', 0.7);
     const nw = this.width(fmt(d.u), 30), uw = this.width('단위', 10), x0 = 120 - (nw + 4 + uw) / 2;
     T(fmt(d.u), x0, 276, 30, 'left'); T('단위', x0 + nw + 4, 281, 10, 'left', 0.85);
     T(d.u > 0 ? '탄수화물 ' + Math.round(d.u * g.icr) + ' g을 맡거나 혈당을 ' + Math.round(d.u * g.isf) + ' 내린다' : '자를 누르거나 끌어서 눈금을 정한다', 120, 294, 7.4, 'center', 0.75);
