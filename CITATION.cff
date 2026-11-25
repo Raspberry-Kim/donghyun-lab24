@@ -3,7 +3,7 @@ message: "If you use this software, please cite it using the metadata below."
 title: "Donghyundi (동현디): a single-player pencil-sketch blood glucose education game for type 1 diabetes in mg/dL, with the starting stage and the paper colour set through the esoteric language Donghyun-lang"
 type: software
 doi: "10.5281/zenodo.24522934"
-version: "0.06"
+version: "0.07"
 date-released: "2026-11-25"
 authors:
   - family-names: Kim
