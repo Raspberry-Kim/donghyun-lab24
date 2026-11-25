@@ -26,10 +26,10 @@ const path = require('path'), fs = require('fs');
           const h = DS.Game.load(JSON.parse(txt)), a = JSON.parse(JSON.stringify(g.save())), c = h.save(); out.n++;
           if (JSON.stringify(a) !== JSON.stringify(c)) out.diff.push(['save', st, how, i]);
           const g2 = DS.Game.load(JSON.parse(txt));               // 원래 판을 건드리지 않고 사본 둘을 끝까지
-          const run = q => { for (let k = 0; k < 9000 && (q.mode === 'play' || q.mode === 'intro'); k++) { q.autoPlay(how); if (q.mode === 'play') q.ff = true; q.update(); } return q.text(); };
+          const run = q => { for (let k = 0; k < 9000 && (q.mode === 'play' || q.mode === 'intro'); k++) { q.autoPlay(how); if (q.mode === 'play') q.rate = 4; q.update(); } return q.text(); };
           if (run(h) !== run(g2)) out.diff.push(['run', st, how, i]);
         }
-        g.autoPlay(how); if (g.mode === 'play') g.ff = true; g.update();
+        g.autoPlay(how); if (g.mode === 'play') g.rate = 4; g.update();
       }
     }
     return out;
@@ -39,10 +39,10 @@ const path = require('path'), fs = require('fs');
   const same = await pg.evaluate(() => {
     const bad = [];
     for (let st = 0; st < DS.STAGES.length; st++) {
-      const g = new DS.Game({ stage: st }); for (let i = 0; i < 1200; i++) { g.autoPlay('ideal'); if (g.mode === 'play') g.ff = true; g.update(); }
+      const g = new DS.Game({ stage: st }); for (let i = 0; i < 1200; i++) { g.autoPlay('ideal'); if (g.mode === 'play') g.rate = 4; g.update(); }
       if (g.mode !== 'play') continue;
       const h = DS.Game.load(JSON.parse(JSON.stringify(g.save())));
-      for (let i = 0; i < 9000 && g.mode === 'play'; i++) { g.autoPlay('ideal'); h.autoPlay('ideal'); g.ff = h.ff = true; g.update(); h.update(); }
+      for (let i = 0; i < 9000 && g.mode === 'play'; i++) { g.autoPlay('ideal'); h.autoPlay('ideal'); g.rate = h.rate = 4; g.update(); h.update(); }
       if (g.text() !== h.text()) bad.push(st + 1);
     }
     return bad;
