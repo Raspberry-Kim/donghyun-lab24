@@ -1,5 +1,5 @@
 /* 동현디 음식과 스테이지.
-   음식의 탄수화물은 식품교환표의 1교환 값이다: 곡류군 23 g · 과일군 12 g · 우유군 10 g.
+   음식의 탄수화물은 식품교환표의 1교환단위 값이다: 곡류군 23 g · 과일군 12 g · 우유군 10 g.
    tau는 위에서 피로 넘어가는 빠르기(분)이고 게임이 정한 값이다. 작을수록 빨리 오른다. */
 (function () {
   'use strict';
@@ -8,16 +8,16 @@
   DS.TITLE = '동현디'; DS.SUBTITLE = '연필로 그린 혈당 게임';
 
   DS.FOODS = {
-    rice1: { name: '밥 1/3공기', g: 23, tau: 25, spr: 'f_rice1', group: '곡류군 1교환' },
-    rice2: { name: '밥 2/3공기', g: 46, tau: 25, spr: 'f_rice2', group: '곡류군 2교환' },
-    rice3: { name: '밥 한 공기', g: 69, tau: 25, spr: 'f_rice3', group: '곡류군 3교환' },
-    bread: { name: '식빵 1쪽', g: 23, tau: 22, spr: 'f_bread', group: '곡류군 1교환' },
-    potato: { name: '감자 1개', g: 23, tau: 25, spr: 'f_potato', group: '곡류군 1교환' },
-    apple: { name: '사과 1/3개', g: 12, tau: 14, spr: 'f_apple', group: '과일군 1교환' },
-    berry: { name: '딸기 10개', g: 12, tau: 12, spr: 'f_berry', group: '과일군 1교환' },
-    melon: { name: '수박 한 쪽', g: 12, tau: 12, spr: 'f_melon', group: '과일군 1교환' },
-    fjuice: { name: '과일주스 반 컵', g: 12, tau: 8, spr: 'f_cup', group: '과일군 1교환' },
-    milk: { name: '우유 1컵', g: 10, tau: 25, spr: 'f_milk', group: '우유군 1교환' }
+    rice1: { name: '밥 1/3공기', g: 23, tau: 25, spr: 'f_rice1', group: '곡류군 1교환단위' },
+    rice2: { name: '밥 2/3공기', g: 46, tau: 25, spr: 'f_rice2', group: '곡류군 2교환단위' },
+    rice3: { name: '밥 한 공기', g: 69, tau: 25, spr: 'f_rice3', group: '곡류군 3교환단위' },
+    bread: { name: '식빵 1쪽', g: 23, tau: 22, spr: 'f_bread', group: '곡류군 1교환단위' },
+    potato: { name: '감자 1개', g: 23, tau: 25, spr: 'f_potato', group: '곡류군 1교환단위' },
+    apple: { name: '사과 1/3개', g: 12, tau: 14, spr: 'f_apple', group: '과일군 1교환단위' },
+    berry: { name: '딸기 10개', g: 12, tau: 12, spr: 'f_berry', group: '과일군 1교환단위' },
+    melon: { name: '수박 한 쪽', g: 12, tau: 12, spr: 'f_melon', group: '과일군 1교환단위' },
+    fjuice: { name: '과일주스 반 컵', g: 12, tau: 8, spr: 'f_cup', group: '과일군 1교환단위' },
+    milk: { name: '우유 1컵', g: 10, tau: 25, spr: 'f_milk', group: '우유군 1교환단위' }
   };
   DS.JUICE = { name: '주스 한 팩', g: 15, tau: 8 };
 
@@ -37,7 +37,7 @@
       tips: [[0, '탄수화물(g) ÷ 10 = 단위. 23 + 10 = 33 g'], [60, '0.5단위씩 가장 가까운 값으로'], [120, '사과 12 g은 1단위쯤'], [200, '밥 46 g은 4.5단위쯤']] },
     { name: '눈대중', goal: '꼬리표 없이 탄수화물을 어림한다', ref: 5.5, clock: 720, dur: 360, bg0: 115, icr: 15, isf: 60, tag: 'hide',
       foods: [{ t: 40, f: 'potato' }, { t: 150, f: 'berry' }, { t: 245, f: 'rice2' }],
-      tips: [[0, '곡류 1교환 23 g · 과일 1교환 12 g'], [50, '이번에는 15 g마다 1단위다'], [110, '딸기 10개가 과일 1교환이다'], [200, '밥 2/3공기는 곡류 2교환이다']] },
+      tips: [[0, '감자 1개는 탄수화물 23 g이다'], [50, '이번에는 15 g마다 1단위다'], [110, '딸기 10개는 탄수화물 12 g이다'], [200, '밥 2/3공기는 탄수화물 46 g이다']] },
     { name: '교정', goal: '높은 혈당을 120으로 내린다', ref: 5.5, clock: 840, dur: 420, bg0: 270, icr: 10, isf: 50, tag: 'g',
       foods: [{ t: 240, f: 'rice1' }],
       tips: [[0, '(혈당 − 120) ÷ 50 = 교정 단위'], [30, '내려오는 데 서너 시간 걸린다'], [190, '밥 23 g은 2.5단위쯤']] },

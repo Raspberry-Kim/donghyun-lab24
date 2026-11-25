@@ -47,7 +47,7 @@
   }
   def('cell0', 26, 28, p => cell(p, 0)); def('cell1', 26, 28, p => cell(p, 1)); def('cell2', 26, 28, p => cell(p, 2));
 
-  /* ───────── 음식 (식품교환표의 1교환 그림) ───────── */
+  /* ───────── 음식 (식품교환표의 1교환단위 그림) ───────── */
   function bowl(p, top) {
     p.poly([[-7.6, 0.4], [-5, top * 0.55], [-2, top], [2, top], [5, top * 0.55], [7.6, 0.4]], { s: true, tone: 0.02, w: 0.42 });
     for (let i = 0; i < 5 + Math.abs(top); i++) { const x = p.lay.r(-5, 5), y = p.lay.r(top * (1 - Math.abs(x) / 7) * 0.8, -0.4); p.seg(x, y, x + 0.9, y - 0.3, { w: 0.3, a: 0.6, passes: 1, noOver: true }); }
